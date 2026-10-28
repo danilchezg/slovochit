@@ -1,0 +1,178 @@
+# урок|тип|задание|ответы через ;|пояснение
+# типы: gap — вставить слово, tr — перевести, fix — исправить ошибку, order — собрать предложение (задание = подсказка по-русски)
+be|gap|I ___ a student.|am|С I всегда am.
+be|gap|My parents ___ at home.|are|parents — они, значит are.
+be|gap|It ___ cold today.|is|it → is.
+be|tr|Она моя сестра.|She is my sister|Нужен глагол to be: She is.
+be|tr|Мы не устали.|We are not tired;We aren't tired;We're not tired|Отрицание: are not / aren't.
+be|tr|Ты дома?|Are you at home;Are you home|Вопрос: Are you…?
+be|fix|He are my friend.|He is my friend|he → is.
+be|order|Где ты?|Where are you|Вопросительное слово, потом are, потом you.
+art|gap|I saw ___ elephant at the zoo.|an|elephant начинается с гласного звука → an.
+art|gap|Close ___ door, please.|the|Конкретная дверь → the.
+art|gap|She is ___ teacher.|a|Профессия, один из многих → a.
+art|gap|I like ___ music. (если артикль не нужен, напишите -)|-|Музыка вообще — без артикля.
+art|tr|У меня есть собака. Собака очень большая.|I have a dog. The dog is very big;I have got a dog. The dog is very big;I've got a dog. The dog is very big|Сначала a (впервые), потом the (та самая).
+art|fix|He is an honest man and a engineer.|He is an honest man and an engineer|engineer начинается с гласного звука → an.
+art|tr|Солнце светит.|The sun is shining|Солнце одно → the.
+art|order|Это яблоко.|This is an apple|apple с гласной → an.
+pl|gap|I have two ___ (child).|children|child → children, исключение.
+pl|gap|There are three ___ (box) on the floor.|boxes|После x → -es.
+pl|gap|Two ___ (city) in Russia.|cities|Согласная + y → -ies.
+pl|gap|My ___ (foot) are cold.|feet|foot → feet.
+pl|tr|Эти книги интересные.|These books are interesting|this → these во множественном числе.
+pl|fix|I have three cat.|I have three cats|После числа больше одного — множественное число.
+pl|fix|The womans are talking.|The women are talking|woman → women.
+pl|order|У меня две сестры.|I have two sisters|Порядок: I have + число + существительное.
+num|gap|7 + 8 = ___ (словами)|fifteen|15 — fifteen.
+num|gap|40 = ___ (словами)|forty|Пишется forty, без u.
+num|tr|Сейчас пять часов.|It is five o'clock;It's five o'clock|Ровный час: It's … o'clock.
+num|tr|Половина седьмого.|It is half past six;It's half past six;Half past six|half past six — половина седьмого.
+num|tr|Мне двадцать пять лет.|I am twenty-five;I'm twenty-five;I am twenty five;I'm twenty five;I am twenty-five years old;I'm twenty-five years old;I am twenty five years old;I'm twenty five years old|Возраст через to be: I am 25.
+num|fix|She is twenty years.|She is twenty;She is twenty years old;She's twenty;She's twenty years old|Говорят twenty или twenty years old.
+num|order|Который час?|What time is it|What time is it? — порядок как в вопросе.
+num|gap|100 = a ___|hundred|100 — a hundred.
+ps|gap|She ___ (work) in a hospital.|works|she → глагол + s.
+ps|gap|They ___ (live) in Moscow.|live|they → без -s.
+ps|gap|My brother ___ (watch) TV every evening.|watches|После ch → -es.
+ps|gap|He ___ (go) to school by bus.|goes|go → goes.
+ps|tr|Я встаю в семь часов.|I get up at seven;I get up at seven o'clock;I get up at 7;I get up at 7 o'clock|Привычка → Present Simple.
+ps|tr|Она любит музыку.|She likes music;She loves music|she likes — с окончанием -s.
+ps|fix|My sister play the piano.|My sister plays the piano|sister = she → plays.
+ps|order|Он пьёт кофе каждое утро.|He drinks coffee every morning|Подлежащее, глагол, дополнение, время.
+do|gap|___ you like tea?|do|Вопрос с you → Do.
+do|gap|She ___ not eat meat.|does|she → does not.
+do|gap|___ he play football?|does|he → Does.
+do|tr|Я не понимаю.|I don't understand;I do not understand|Отрицание: don't + глагол.
+do|tr|Где ты живёшь?|Where do you live|Вопрос: Where do you…?
+do|fix|She don't like coffee.|She doesn't like coffee;She does not like coffee|she → doesn't.
+do|fix|Does he lives here?|Does he live here|После does глагол без -s.
+do|order|Ты говоришь по-английски?|Do you speak English|Do + you + глагол.
+pc|gap|Look! It ___ (rain).|is raining|Прямо сейчас → is + ing.
+pc|gap|I ___ (read) a book now.|am reading|I → am + ing.
+pc|gap|They ___ (play) in the garden at the moment.|are playing|they → are + ing.
+pc|tr|Что ты делаешь?|What are you doing|Сейчас → Present Continuous.
+pc|tr|Она сейчас спит.|She is sleeping now;She's sleeping now;She is sleeping;She's sleeping;She is asleep now;She's asleep now|is + sleeping.
+pc|fix|He is siting on the chair.|He is sitting on the chair|sit → sitting: удваиваем t.
+pc|fix|We watching a film now.|We are watching a film now|Нужен are перед -ing.
+pc|order|Мы ждём автобус.|We are waiting for the bus|wait for — ждать кого-то.
+past|gap|Yesterday I ___ (play) tennis.|played|Правильный глагол → -ed.
+past|gap|We ___ (go) to the cinema last week.|went|go → went.
+past|gap|She ___ (not / call) me yesterday.|didn't call;did not call|Отрицание в прошлом: didn't + глагол.
+past|gap|___ you see the film?|did|Вопрос в прошлом: Did.
+past|tr|Я видел его вчера.|I saw him yesterday|see → saw.
+past|tr|Мы купили новую машину.|We bought a new car|buy → bought.
+past|fix|Did you went to the party?|Did you go to the party|После did — начальная форма.
+past|order|Вчера я был дома.|I was at home yesterday;Yesterday I was at home|was для I в прошлом.
+irr|gap|She ___ (write) a letter yesterday.|wrote|write — wrote — written.
+irr|gap|I ___ (think) about you.|thought|think — thought.
+irr|gap|He ___ (find) his keys.|found|find — found.
+irr|gap|They ___ (eat) all the cake.|ate|eat — ate — eaten.
+irr|tr|Он сказал мне правду.|He told me the truth|tell — told: сказать кому-то.
+irr|tr|Я знал ответ.|I knew the answer|know — knew.
+irr|fix|I buyed a new phone.|I bought a new phone|buy — bought, неправильный глагол.
+irr|fix|She taked my pen.|She took my pen|take — took.
+there|gap|There ___ a cat on the sofa.|is|Один предмет → There is.
+there|gap|There ___ many people here.|are|Много → There are.
+there|gap|___ there a bank near here?|is|Вопрос: Is there…?
+there|tr|В комнате два окна.|There are two windows in the room|Есть что-то где-то → There are.
+there|tr|В холодильнике нет молока.|There is no milk in the fridge;There isn't any milk in the fridge;There's no milk in the fridge|There is no / There isn't any.
+there|fix|There is three books on the table.|There are three books on the table|Несколько предметов → are.
+there|fix|It is a park near my house.|There is a park near my house|Наличие чего-то → There is.
+there|order|В саду есть дерево.|There is a tree in the garden|There is + что + где.
+prep|gap|My birthday is ___ May.|in|Месяцы → in.
+prep|gap|See you ___ Monday.|on|Дни недели → on.
+prep|gap|The lesson starts ___ nine o'clock.|at|Точное время → at.
+prep|gap|The keys are ___ the table.|on|На поверхности → on.
+prep|tr|Я живу в Санкт-Петербурге.|I live in Saint Petersburg;I live in St Petersburg;I live in St. Petersburg|Город → in.
+prep|tr|Встретимся в пять часов.|Let's meet at five;Let's meet at five o'clock;Let's meet at 5;Let us meet at five o'clock;See you at five;See you at five o'clock|Точное время → at.
+prep|fix|I was born on 2001.|I was born in 2001|Год → in.
+prep|fix|We have English in Monday.|We have English on Monday|День недели → on.
+have|gap|She ___ a new bike.|has|she → has.
+have|gap|___ you got a pen?|have|have got → Have you got…?
+have|gap|I ___ two brothers.|have|I → have.
+have|tr|У меня есть кошка.|I have a cat;I have got a cat;I've got a cat|«У меня есть» → I have.
+have|tr|У него нет машины.|He doesn't have a car;He does not have a car;He hasn't got a car;He has not got a car;He has no car|Отрицание: doesn't have или hasn't got.
+have|fix|He have a big house.|He has a big house|he → has.
+have|fix|Do you have got a sister?|Do you have a sister;Have you got a sister|Либо Do you have, либо Have you got.
+have|order|У неё голубые глаза.|She has blue eyes;She has got blue eyes|has + прилагательное + существительное.
+fut|gap|I think it ___ rain tomorrow.|will|Предсказание → will.
+fut|gap|We are ___ to visit our grandma on Sunday.|going|План → be going to.
+fut|gap|I ___ (not) tell anyone. I promise.|won't;will not|Обещание: won't.
+fut|tr|Я тебе помогу.|I will help you;I'll help you|Решение или обещание → will.
+fut|tr|Мы собираемся купить дом.|We are going to buy a house;We're going to buy a house|План → going to.
+fut|fix|I will to call you later.|I will call you later|После will — глагол без to.
+fut|fix|She going to study medicine.|She is going to study medicine;She's going to study medicine|Нужен is: be going to.
+fut|order|Завтра будет холодно.|It will be cold tomorrow;Tomorrow it will be cold|It will be + прилагательное.
+modal|gap|I ___ swim. I learnt last summer.|can|Умею → can.
+modal|gap|You ___ see a doctor. You look ill.|should|Совет → should.
+modal|gap|Students ___ be late for exams. It's a rule.|mustn't;must not|Запрет → mustn't.
+modal|tr|Можно мне воды?|Can I have some water;Can I have water;Could I have some water;May I have some water|Просьба → Can I have…?
+modal|tr|Тебе стоит больше отдыхать.|You should rest more|Совет → should.
+modal|fix|She can speaks French.|She can speak French|После can — глагол без -s.
+modal|fix|You should to go home.|You should go home|После should — без to.
+modal|order|Я не умею плавать.|I can't swim;I cannot swim|can't + глагол.
+pperf|gap|I have ___ (finish) my work.|finished|have + третья форма.
+pperf|gap|She ___ never been to Paris.|has|she → has.
+pperf|gap|Have you ever ___ (see) a whale?|seen|see — saw — seen.
+pperf|gap|I have lived here ___ ten years.|for|Сколько длится → for.
+pperf|tr|Я уже поел.|I have already eaten;I've already eaten;I have eaten already;I've eaten already|already + Present Perfect.
+pperf|tr|Ты когда-нибудь был в Лондоне?|Have you ever been to London|Опыт → Have you ever been…?
+pperf|fix|I have saw this film.|I have seen this film;I've seen this film|После have — третья форма: seen.
+pperf|fix|I have seen him yesterday.|I saw him yesterday|yesterday — только Past Simple.
+pastc|gap|I ___ (sleep) when you called.|was sleeping|Длительное в прошлом → was + ing.
+pastc|gap|They ___ (watch) TV at 9 pm.|were watching|they → were + ing.
+pastc|gap|While we ___ (walk), it started to rain.|were walking|while + длительное действие.
+pastc|tr|Что ты делал вчера в шесть?|What were you doing at six yesterday;What were you doing yesterday at six;What were you doing at 6 yesterday;What were you doing yesterday at 6|Момент в прошлом → Past Continuous.
+pastc|tr|Она читала, когда я пришёл.|She was reading when I came;She was reading when I arrived;She was reading when I came in|Длинное (was reading) + короткое (came).
+pastc|fix|I was cook dinner when he arrived.|I was cooking dinner when he arrived|was + ing: cooking.
+pastc|fix|We was playing football.|We were playing football|we → were.
+pastc|order|Шёл дождь.|It was raining|It was + raining.
+comp|gap|My brother is ___ (tall) than me.|taller|Короткое → -er.
+comp|gap|This is the ___ (good) pizza in town.|best|good → the best.
+comp|gap|Russian is ___ (difficult) than English.|more difficult|Длинное → more.
+comp|gap|Today is ___ (hot) than yesterday.|hotter|hot → hotter, удваиваем t.
+comp|tr|Москва больше, чем Петербург.|Moscow is bigger than Saint Petersburg;Moscow is bigger than St Petersburg;Moscow is bigger than St. Petersburg;Moscow is larger than Saint Petersburg|bigger + than.
+comp|tr|Это самая красивая улица в городе.|This is the most beautiful street in the city;This is the most beautiful street in the town|the most + длинное прилагательное.
+comp|fix|She is more taller than her sister.|She is taller than her sister|Либо -er, либо more, но не оба сразу.
+comp|fix|This is the baddest day ever.|This is the worst day ever|bad → worse → the worst.
+count|gap|How ___ apples do you want?|many|apples исчисляемые → many.
+count|gap|I don't have ___ money.|much;any|money неисчисляемое: much или any.
+count|gap|Would you like ___ tea?|some|Предложение → some.
+count|gap|Are there ___ shops near here?|any|Вопрос → any.
+count|tr|Сколько стоит?|How much is it;How much does it cost|Цена → How much.
+count|tr|У меня много друзей.|I have a lot of friends;I have many friends;I have lots of friends;I've got a lot of friends|a lot of / many с исчисляемыми.
+count|fix|Can you give me an advice?|Can you give me some advice;Can you give me advice;Can you give me a piece of advice|advice неисчисляемое: без an.
+count|fix|There isn't some milk.|There isn't any milk;There is no milk;There's no milk|Отрицание → any.
+cond|gap|If it ___ (rain), we will stay at home.|rains|После if — Present Simple.
+cond|gap|If you study hard, you ___ pass the exam.|will|Первый тип: will + глагол.
+cond|gap|If I ___ (be) you, I would go.|were|If I were you — на твоём месте.
+cond|gap|If I had a car, I ___ drive to work.|would|Второй тип: would.
+cond|tr|Если будет солнечно, мы пойдём в парк.|If it is sunny, we will go to the park;If it's sunny, we'll go to the park;If it's sunny, we will go to the park;If it is sunny, we'll go to the park|If + Present, will + глагол.
+cond|tr|Если бы у меня было время, я бы читал больше.|If I had time, I would read more;If I had more time, I would read more;If I had time, I'd read more|Второй тип: If + Past, would.
+cond|fix|If it will rain, I will take an umbrella.|If it rains, I will take an umbrella;If it rains, I'll take an umbrella|После if — не will, а Present.
+cond|fix|If I would have money, I would buy it.|If I had money, I would buy it;If I had money, I'd buy it|После if — Past Simple: had.
+passive|gap|This house ___ built in 1900.|was|Прошлое → was + V3.
+passive|gap|English is ___ (speak) in many countries.|spoken|is + третья форма.
+passive|gap|The letters ___ sent yesterday.|were|letters → were.
+passive|gap|The work will be ___ (finish) tomorrow.|finished|will be + V3.
+passive|tr|Эта книга была написана Оскаром Уайльдом.|This book was written by Oscar Wilde|was written by.
+passive|tr|Мой велосипед украли.|My bike was stolen;My bike has been stolen;My bicycle was stolen;My bicycle has been stolen|Пассив: was stolen.
+passive|fix|The cake was eat by the children.|The cake was eaten by the children|was + третья форма: eaten.
+passive|fix|The room is clean every day.|The room is cleaned every day|is + третья форма: cleaned.
+gerund|gap|I enjoy ___ (swim).|swimming|enjoy + -ing.
+gerund|gap|She wants ___ (learn) Italian.|to learn|want + to.
+gerund|gap|Stop ___ (talk), please!|talking|stop + -ing.
+gerund|gap|We decided ___ (stay) at home.|to stay|decide + to.
+gerund|tr|Я люблю читать.|I like reading;I love reading;I like to read;I love to read|like / love + -ing или to.
+gerund|tr|Он хорошо рисует.|He is good at drawing;He's good at drawing;He draws well;He is good at painting|good at + -ing.
+gerund|fix|I finished to read the book.|I finished reading the book|finish + -ing.
+gerund|fix|She hopes seeing you soon.|She hopes to see you soon|hope + to.
+rel|gap|The girl ___ lives next door is my friend.|who;that|Человек → who / that.
+rel|gap|This is the book ___ I told you about.|which;that|Предмет → which / that.
+rel|gap|That's the hotel ___ we stayed.|where|Место → where.
+rel|gap|I know a man ___ wife is a pilot.|whose|Чей → whose.
+rel|tr|Мужчина, который мне помог, был врачом.|The man who helped me was a doctor;The man that helped me was a doctor|Человек → who.
+rel|tr|Это город, где я родился.|This is the city where I was born;This is the town where I was born|Место → where.
+rel|fix|The phone who I bought is broken.|The phone which I bought is broken;The phone that I bought is broken;The phone I bought is broken|Предмет → which / that.
+rel|fix|She is the woman which teaches us.|She is the woman who teaches us;She is the woman that teaches us|Человек → who.

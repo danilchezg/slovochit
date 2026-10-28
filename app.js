@@ -364,10 +364,10 @@ function fillDict() {
 
 function renderLearn() {
   const total = UNITS.reduce((a, u) => a + u.ls.length, 0), done = Object.values(ST.lessons).filter(l => l.done).length;
-  let h = header("Уроки", `Пройдено ${done} из ${total}`);
+  let h = header("Уроки", `Пройдено ${done} из ${total}`) + practiceBlock();
   UNITS.forEach((u, ui) => {
     h += `<div class="unit"><div class="unit-h"><span class="n">0${ui + 1}</span><div><h2>${esc(u.t)}</h2><p>${esc(u.d)}</p></div></div><div class="panel lessons">`;
-    u.ls.forEach((l, li) => { const st = ST.lessons[l.id]; h += `<button class="lesson" data-lesson="${l.id}"><span class="st ${st && st.done ? "done" : ""}">${st && st.done ? IC.check : li + 1}</span><span class="lt"><b>${esc(l.t)}</b><span>${esc(l.d)}${st && st.done ? ` · ${st.score}/${l.q.length}` : ""}</span></span><span style="color:var(--faint)">${IC.chev.replace("<svg", '<svg width="18" height="18"')}</span></button>` });
+    u.ls.forEach((l, li) => { const st = ST.lessons[l.id]; h += `<button class="lesson" data-lesson="${l.id}"><span class="st ${st && st.done ? "done" : ""}">${st && st.done ? IC.check : li + 1}</span><span class="lt"><b>${esc(l.t)}</b><span>${esc(l.d)}${st && st.done ? ` · тест ${st.score}/${l.q.length}` : ""}${ST.prac && ST.prac[l.id] ? ` · письмо ${ST.prac[l.id]}/${(PRACTICE[l.id] || []).length}` : ""}</span></span><span style="color:var(--faint)">${IC.chev.replace("<svg", '<svg width="18" height="18"')}</span></button>` });
     h += `</div></div>`;
   });
   return h;
@@ -397,6 +397,7 @@ function render() {
   $$(".tab").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   refreshCounters();
   if (tab === "read") { $$("[data-lib]").forEach(c => c.onclick = () => { libF = c.dataset.lib; render() }); $("#upBtn").onclick = () => $("#file").click(); const hi = $("#hideInst"); if (hi) hi.onclick = () => { LS.set("sc_hideInstall", 1); render() } }
+  if (tab === "learn") bindPracticeBlock();
   if (tab === "dict") {
     fillDict(); const dq = $("#dq"); if (dq) dq.oninput = fillDict;
     $$("[data-f]").forEach(c => c.onclick = () => { dFilter = c.dataset.f; $$("[data-f]").forEach(x => x.classList.toggle("on", x === c)); fillDict() });
@@ -559,8 +560,9 @@ function openLesson(id) {
     if (s.tb) h += `<div class="tw"><table><tbody>${s.tb.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     if (s.ex) h += `<div class="exs">${s.ex.map(x => `<div class="ex"><div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div><button class="say sm" data-say="${esc(x[0].replace(/\/.*\//, ""))}" aria-label="Произнести">${IC.sound}</button></div>`).join("")}</div>`;
     h += `</div>` });
-  h += `<div class="ls" style="margin-top:32px"><button class="btn primary block" id="lQuiz">Проверить себя · ${l.q.length} ${plural(l.q.length, "вопрос", "вопроса", "вопросов")}</button></div></div>`;
+  h += `<div class="ls" style="margin-top:32px"><button class="btn primary block" id="lQuiz">Тест · ${l.q.length} ${plural(l.q.length, "вопрос", "вопроса", "вопросов")}</button>${PRACTICE[l.id] ? `<button class="btn soft block" id="lPrac" style="margin-top:10px">Писать ответы · ${PRACTICE[l.id].length} ${plural(PRACTICE[l.id].length, "задание", "задания", "заданий")}</button>` : ""}</div></div>`;
   openLayer("#layer", h); $("#lBack").onclick = () => { closeLayer("#layer"); render() }; $("#lQuiz").onclick = () => runQuiz(l);
+  const lp = $("#lPrac"); if (lp) lp.onclick = () => runPractice(shuffle(practiceItems(l.id)), l.t, (g) => { ST.prac = ST.prac || {}; ST.prac[l.id] = Math.max(ST.prac[l.id] || 0, g); saveState() });
 }
 function doneScreen(box, title, sub, again, done) {
   box.innerHTML = `<div class="done view"><div class="big-ic">${IC.check}</div><h2>${esc(title)}</h2><p>${esc(sub)}</p><div class="acts" style="justify-content:center;max-width:420px;margin:22px auto 0">${again ? `<button class="btn soft" id="dAgain">Ещё раз</button>` : ""}<button class="btn primary" id="dOk">Готово</button></div></div>`;
@@ -900,6 +902,189 @@ function bindMtSettings() {
   };
   const t = $("#nmtTest"); if (t) t.onclick = async () => { msg("Перевожу…"); const t0 = Date.now(); try { const r = await nmtTranslate("When Alice reached the shore, she was wet and tired."); msg(r + ` (${((Date.now() - t0) / 1000).toFixed(1)} с)`) } catch (e) { msg("Не получилось. Попробуйте удалить и скачать переводчик заново.") } };
   const d = $("#nmtDel"); if (d) d.onclick = async () => { try { await caches.delete("transformers-cache") } catch (e) {} LS.set("sc_nmt", 0); NMT = null; NMTp = null; toast("Офлайн-переводчик удалён"); openSettings("mt") };
+}
+
+/* ============ writing practice: answers checked offline ============ */
+const CONTR_EXP = { "i'm": "i am", "you're": "you are", "we're": "we are", "they're": "they are", "that's": "that is", "there's": "there is", "what's": "what is", "where's": "where is", "who's": "who is", "let's": "let us", "isn't": "is not", "aren't": "are not", "wasn't": "was not", "weren't": "were not", "don't": "do not", "doesn't": "does not", "didn't": "did not", "haven't": "have not", "hasn't": "has not", "hadn't": "had not", "won't": "will not", "wouldn't": "would not", "can't": "cannot", "couldn't": "could not", "shouldn't": "should not", "mustn't": "must not", "i've": "i have", "you've": "you have", "we've": "we have", "they've": "they have", "i'll": "i will", "you'll": "you will", "he'll": "he will", "she'll": "she will", "it'll": "it will", "we'll": "we will", "they'll": "they will" };
+function normVariants(s) {
+  let t = String(s).toLowerCase().replace(/[’‘`]/g, "'").replace(/[“”"«»]/g, "").replace(/\bcan not\b/g, "cannot").replace(/\bst\.?\s+petersburg\b/g, "saint petersburg");
+  t = t.replace(/[.,!?;:()]/g, " ").replace(/\s+/g, " ").trim();
+  t = t.split(" ").map(w => CONTR_EXP[w] || w).join(" ");
+  // 's and 'd are ambiguous (is/has, would/had): produce both readings
+  const a = t.replace(/\b(he|she|it)'s\b/g, "$1 is").replace(/\b(i|you|he|she|we|they)'d\b/g, "$1 would");
+  const b = t.replace(/\b(he|she|it)'s\b/g, "$1 has").replace(/\b(i|you|he|she|we|they)'d\b/g, "$1 had");
+  return [...new Set([a, b])];
+}
+function lev(a, b) { const m = a.length, n = b.length; if (!m) return n; if (!n) return m; let p = Array.from({ length: n + 1 }, (_, j) => j); for (let i = 1; i <= m; i++) { const c = [i]; for (let j = 1; j <= n; j++) c[j] = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); p = c } return p[n] }
+async function isWord(w) { if (!w || w.length < 2) return true; const r = await lookup(w); return !!r }
+// result: {ok:true} | {ok:"typo", fix} | {ok:false}
+async function checkAnswer(input, answers) {
+  const blankOk = answers.includes("-") && /^\s*[-—–]?\s*$|^\s*(нет|no|no article|без артикля)\s*$/i.test(input);
+  if (blankOk) return { ok: true, best: "-" };
+  const ins = normVariants(input);
+  for (const a of answers) { const as = normVariants(a); if (ins.some(x => as.includes(x))) return { ok: true, best: a } }
+  // closest answer by words
+  let best = answers[0], bestD = 1e9;
+  for (const a of answers) { const d = lev(normVariants(a)[0].split(" "), ins[0].split(" ")); if (d < bestD) { bestD = d; best = a } }
+  const aw = normVariants(best)[0].split(" "), iw = ins[0].split(" ");
+  if (aw.length === iw.length) {
+    const diff = aw.map((w, k) => [w, iw[k]]).filter(([w, u]) => w !== u);
+    if (diff.length && diff.length <= 2 && diff.every(([w, u]) => w.length >= 4 && lev(w, u) <= (w.length >= 8 ? 2 : 1))) {
+      // a typo only if the typed word is not itself a real word (works ≠ work is a grammar mistake)
+      let typo = true; for (const [, u] of diff) if (await isWord(u)) typo = false;
+      if (typo) return { ok: "typo", best };
+    }
+  }
+  return { ok: false, best };
+}
+function diffHTML(input, correct) {
+  const a = String(input).trim().split(/\s+/), b = String(correct).trim().split(/\s+/);
+  const n = (w) => w.toLowerCase().replace(/[.,!?;:"“”]/g, "").replace(/’/g, "'");
+  const L = Array.from({ length: a.length + 1 }, () => Array(b.length + 1).fill(0));
+  for (let i = a.length - 1; i >= 0; i--) for (let j = b.length - 1; j >= 0; j--) L[i][j] = n(a[i]) === n(b[j]) ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  let i = 0, j = 0; const yours = [], right = [];
+  while (i < a.length && j < b.length) { if (n(a[i]) === n(b[j])) { yours.push(esc(a[i])); right.push(esc(b[j])); i++; j++ } else if (L[i + 1][j] >= L[i][j + 1]) { yours.push(`<del>${esc(a[i])}</del>`); i++ } else { right.push(`<ins>${esc(b[j])}</ins>`); j++ } }
+  while (i < a.length) yours.push(`<del>${esc(a[i++])}</del>`); while (j < b.length) right.push(`<ins>${esc(b[j++])}</ins>`);
+  return { yours: yours.join(" "), right: right.join(" ") };
+}
+const PTYPE = { gap: "Вставьте слово", tr: "Переведите на английский", fix: "Найдите и исправьте ошибку", order: "Соберите предложение" };
+function practiceItems(lessonId) { return (PRACTICE[lessonId] || []).map((it, i) => Object.assign({ key: lessonId + ":" + i, l: lessonId }, it)) }
+function mistakes() { const m = ST.mist || {}; return Object.keys(m).map(k => { const [l, i] = k.split(":"); const it = (PRACTICE[l] || [])[+i]; return it ? Object.assign({ key: k, l }, it) : null }).filter(Boolean) }
+function shuffle(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]] } return a }
+function runPractice(items, title, onDone) {
+  items = items.slice(0, 15); if (!items.length) return;
+  const L = $("#layer").classList.contains("open");
+  const html = `<div class="lbar"><button class="ib" id="prBack" aria-label="Закрыть">${IC.close}</button><div class="t">${esc(title)}</div><span style="width:42px"></span></div><div class="page" id="pr" style="max-width:600px"></div>`;
+  if (L) { $("#layer").innerHTML = html; $("#layer").scrollTop = 0 } else openLayer("#layer", html);
+  const close = () => { closeLayer("#layer"); render() }; $("#prBack").onclick = close;
+  const box = $("#pr"); let i = 0, good = 0; const res = [];
+  const step = () => {
+    if (i >= items.length) { const xp = good * 2; if (xp) addXP(xp); saveState(); if (onDone) onDone(good, items.length);
+      return doneScreen(box, good === items.length ? "Всё верно" : good >= items.length / 2 ? "Хорошая работа" : "Стоит потренироваться ещё", `Правильно ${good} из ${items.length} · +${xp} XP${Object.keys(ST.mist || {}).length ? " · ошибки ждут в «Работе над ошибками»" : ""}`, () => runPractice(shuffle(items), title, onDone), close) }
+    const it = items[i]; let order = [];
+    const words = it.t === "order" ? shuffle(it.a[0].replace(/[.?!]$/, "").split(/\s+/)) : [];
+    const q = it.t === "gap" ? esc(it.q).replace("___", '<span class="blank">&nbsp;?&nbsp;</span>') : esc(it.q);
+    box.innerHTML = `<div class="view"><div class="qprog">${items.map((_, k) => `<i class="${k < i ? (res[k] ? "ok" : "bad") : k === i ? "cur" : ""}"></i>`).join("")}</div><p class="ptype">${PTYPE[it.t]}</p><div class="qq">${q}</div>
+      ${it.t === "order" ? `<div class="obuild" id="ob"></div><div class="opool" id="op">${words.map((w, k) => `<button class="ow" data-k="${k}">${esc(w)}</button>`).join("")}</div>` : it.t === "gap" ? `<input class="field big" id="ans" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Ваш ответ">` : `<textarea class="field big area" id="ans" rows="3" autocapitalize="sentences" spellcheck="false" placeholder="Напишите по-английски">${it.t === "fix" ? esc(it.q) : ""}</textarea>`}
+      <div id="pfb"></div><div class="acts"><button class="btn primary block" id="pCheck">Проверить</button></div><button class="more" id="pSkip" style="display:block;margin:6px auto 0">Не знаю — показать ответ</button></div>`;
+    $("#layer").scrollTop = 0;
+    const inp = $("#ans"); if (inp) { setTimeout(() => { try { inp.focus({ preventScroll: true }); if (it.t === "fix") inp.setSelectionRange(inp.value.length, inp.value.length) } catch (e) {} }, 350); inp.addEventListener("keydown", e => { if (e.key === "Enter" && (it.t === "gap" || !e.shiftKey)) { e.preventDefault(); $("#pCheck").click() } }) }
+    if (it.t === "order") {
+      const drawO = () => { $("#ob").innerHTML = order.length ? order.map((k, pos) => `<button class="ow on" data-pos="${pos}">${esc(words[k])}</button>`).join("") : `<span class="note" style="margin:0">Нажимайте на слова по порядку</span>`; $$("#op .ow").forEach(b => b.disabled = order.includes(+b.dataset.k)); $$("#ob .ow").forEach(b => b.onclick = () => { order.splice(+b.dataset.pos, 1); drawO() }) };
+      $$("#op .ow").forEach(b => b.onclick = () => { order.push(+b.dataset.k); drawO() }); drawO();
+    }
+    const finish = async (skip) => {
+      const user = it.t === "order" ? order.map(k => words[k]).join(" ") : (inp ? inp.value : "");
+      if (!skip && !user.trim()) { inp && inp.focus(); return }
+      const r = skip ? { ok: false, best: it.a[0] } : await checkAnswer(user, it.a);
+      const ok = r.ok === true || r.ok === "typo"; res[i] = ok; if (ok) good++;
+      ST.mist = ST.mist || {}; if (ok) delete ST.mist[it.key]; else ST.mist[it.key] = (ST.mist[it.key] || 0) + 1;
+      const d = diffHTML(user || "—", r.best === "-" ? "—" : r.best);
+      const fullRight = it.t === "gap" ? esc(it.q.replace(/\s*\([^)]*\)/g, "")).replace("___", `<strong class="ans">${esc(r.best === "-" ? "—" : r.best)}</strong>`) : esc(r.best);
+      $("#pfb").innerHTML = `<div class="fb ${ok ? "ok" : "bad"}"><b>${r.ok === true ? "Верно!" : r.ok === "typo" ? "Почти верно — опечатка" : skip ? "Правильный ответ" : "Не совсем"}</b>${r.ok !== true && !skip ? `<p class="dl">Ваш ответ: ${d.yours}</p>` : ""}${r.ok !== true ? `<p class="dl">Правильно: ${it.t === "gap" ? fullRight : d.right}</p>` : it.t === "gap" ? `<p class="dl">${fullRight}</p>` : ""}${it.a.length > 1 && r.ok === true ? "" : ""}<p style="margin-top:6px">${esc(it.e)}</p>${it.a.length > 1 ? `<p class="note">Тоже верно: ${it.a.filter(x => x !== r.best).slice(0, 2).map(esc).join(" · ")}</p>` : ""}</div>`;
+      $("#pCheck").textContent = i < items.length - 1 ? "Дальше" : "Результат"; $("#pSkip").hidden = true; if (inp) inp.readOnly = true; $$("#op .ow,#ob .ow").forEach(b => b.disabled = true);
+      $("#pCheck").onclick = () => { i++; step() };
+      if (it.t !== "gap" || !ok) say(r.best === "-" ? "" : (it.t === "gap" ? it.q.replace("___", r.best).replace(/\s*\([^)]*\)/g, "") : r.best));
+    };
+    $("#pCheck").onclick = () => finish(false); $("#pSkip").onclick = () => finish(true);
+  };
+  step();
+}
+function practiceBlock() {
+  const nm = mistakes().length; const all = Object.values(PRACTICE).reduce((n, x) => n + x.length, 0);
+  return `<div class="sec"><h2>Тренажёр</h2><span>${all} заданий с проверкой</span></div><div class="modes" style="margin-top:0"><button class="panel mode" id="trMix"><span class="ic" style="background:var(--accent-soft);color:var(--accent)">${IC.check}</span><span><h3>Практика</h3><p>10 заданий по пройденным темам</p></span></button><button class="panel mode" id="trMist" ${nm ? "" : "disabled style=\"opacity:.55\""}><span class="ic" style="background:var(--warn-soft);color:var(--warn)">${IC.quiz}</span><span><h3>Ошибки</h3><p>${nm ? nm + " " + plural(nm, "задание", "задания", "заданий") : "Пока ошибок нет"}</p></span></button></div><button class="panel mode" id="trWrite" style="width:100%;margin-top:10px"><span class="ic" style="background:var(--gold-soft);color:var(--gold)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><span><h3>Свободное письмо</h3><p>Напишите текст на тему, приложение найдёт ошибки</p></span></button>`;
+}
+function bindPracticeBlock() {
+  const m = $("#trMix"); if (m) m.onclick = () => { const done = Object.keys(ST.lessons).filter(id => ST.lessons[id].done && PRACTICE[id]); const pool = (done.length ? done : Object.keys(PRACTICE).slice(0, 6)).flatMap(practiceItems); runPractice(shuffle(pool).slice(0, 10), "Практика") };
+  const e = $("#trMist"); if (e) e.onclick = () => { const ms = mistakes(); if (ms.length) runPractice(shuffle(ms), "Работа над ошибками") };
+  const w = $("#trWrite"); if (w) w.onclick = openWriting;
+}
+
+/* ============ free writing with checks ============ */
+const TOPICS = [
+  ["A1", "Расскажите о себе: как вас зовут, откуда вы, чем занимаетесь.", "My name is…"], ["A1", "Опишите свою комнату.", "In my room there is…"], ["A1", "Что вы обычно делаете утром?", "Every morning I…"],
+  ["A1", "Расскажите о своей семье.", "I have…"], ["A2", "Как вы провели прошлые выходные?", "Last weekend I…"], ["A2", "Опишите своего лучшего друга.", "My best friend is…"],
+  ["A2", "Какая у вас любимая книга или фильм и почему?", "My favourite book is…"], ["A2", "Какие у вас планы на следующее лето?", "Next summer I am going to…"],
+  ["A2", "Напишите письмо другу о новом месте, где вы были.", "Dear …, last week I visited…"], ["B1", "Что вы сделали в жизни такого, чем гордитесь?", "I have…"],
+  ["B1", "Что бы вы сделали, если бы выиграли миллион?", "If I won a million…"], ["B1", "Перескажите любимую главу из книги в Словочите.", "In this chapter…"],
+  ["B1", "Плюсы и минусы жизни в большом городе.", "Living in a big city…"], ["B1", "Опишите музыку, которую вы любите, и почему.", "The music I love…"]
+];
+function openWriting() {
+  const draft = LS.get("sc_draft", { t: 0, text: "" });
+  openLayer("#layer", `<div class="lbar"><button class="ib" id="wrBack" aria-label="Закрыть">${IC.close}</button><div class="t">Свободное письмо</div><span style="width:42px"></span></div><div class="page" style="max-width:640px"><h1>Свободное письмо</h1><p class="lead">Выберите тему и напишите несколько предложений. Ошибки подсветятся, нажмите на подсветку, чтобы увидеть объяснение.</p>
+  <div class="sec"><h2>Тема</h2><span id="tpLv"></span></div><div class="panel" style="padding:14px 16px"><div style="display:flex;gap:10px;align-items:flex-start"><p id="tpText" style="flex:1;font-weight:700"></p><button class="btn soft sm" id="tpNext">Другая</button></div><p class="note" id="tpHint"></p></div>
+  <textarea class="field area" id="wrText" rows="8" placeholder="Пишите по-английски…" spellcheck="false" autocapitalize="sentences">${esc(draft.text)}</textarea>
+  <div class="acts"><button class="btn primary" id="wrCheck">${IC.check} Проверить</button><button class="btn soft" id="wrClear">Очистить</button></div><div id="wrOut"></div></div>`);
+  let tp = draft.t || 0; const showT = () => { const t = TOPICS[tp % TOPICS.length]; $("#tpText").textContent = t[1]; $("#tpHint").textContent = "Можно начать так: " + t[2]; $("#tpLv").textContent = t[0] };
+  showT(); $("#tpNext").onclick = () => { tp++; showT(); LS.set("sc_draft", { t: tp, text: $("#wrText").value }) };
+  $("#wrText").oninput = () => LS.set("sc_draft", { t: tp, text: $("#wrText").value });
+  $("#wrBack").onclick = () => { closeLayer("#layer"); render() };
+  $("#wrClear").onclick = () => { $("#wrText").value = ""; $("#wrOut").innerHTML = ""; LS.set("sc_draft", { t: tp, text: "" }) };
+  $("#wrCheck").onclick = async () => { const text = $("#wrText").value; if (text.trim().length < 3) return; const b = $("#wrCheck"); b.disabled = true; $("#wrOut").innerHTML = '<div class="skel" style="width:70%;margin-top:16px"></div><div class="skel" style="width:50%"></div>'; try { await checkWriting(text) } finally { b.disabled = false } };
+}
+async function ltCheck(text) {
+  const body = new URLSearchParams({ text, language: "en-US", motherTongue: "ru", level: "default" });
+  const r = await fetch("https://api.languagetool.org/v2/check", { method: "POST", body, signal: withTimeout(12000) });
+  if (!r.ok) throw 0; const j = await r.json();
+  return (j.matches || []).map(m => ({ o: m.offset, l: m.length, msg: m.message, sug: (m.replacements || []).slice(0, 3).map(x => x.value), kind: m.rule && m.rule.issueType === "misspelling" ? "spell" : (m.rule && /STYLE|TYPOGRAPHY|CASING|WHITESPACE|PUNCTUATION/i.test(m.rule.category && m.rule.category.id || "") ? "style" : "grammar") }));
+}
+const COMMON_V = new Set("like love want need go have do live work play know think eat drink read write make take see come get say speak watch study try feel look sleep walk run buy cook help teach learn open close start finish wait listen talk call stay leave meet understand remember forget".split(" "));
+async function localCheck(text) {
+  const out = []; const re = /[A-Za-z]+(?:['’][A-Za-z]+)*/g; let m; const toks = [];
+  while ((m = re.exec(text))) toks.push({ w: m[0], o: m.index, l: m[0].length });
+  const low = t => t.w.toLowerCase().replace(/’/g, "'");
+  const add = (t, len, msg, sug, kind) => out.push({ o: t.o, l: len || t.l, msg, sug: sug || [], kind: kind || "grammar" });
+  // sentence starts with a capital letter
+  const sre = /(^|[.!?]\s+)([a-z])/g; while ((m = sre.exec(text))) out.push({ o: m.index + m[1].length, l: 1, msg: "Предложение начинается с заглавной буквы.", sug: [m[2].toUpperCase()], kind: "style" });
+  const VOW = /^[aeiou]/i, AN_EX = /^(hour|honest|honour|honor|heir)/i, A_EX = /^(uni|use|usu|euro|one|once|u[bcfgklmnrst][aeiou])/i;
+  for (let k = 0; k < toks.length; k++) {
+    const t = toks[k], w = low(t), nx = toks[k + 1], nw = nx ? low(nx) : "", pw = k ? low(toks[k - 1]) : "";
+    if (t.w === "i") add(t, 1, "«Я» по-английски всегда пишется с большой буквы: I.", ["I"]);
+    if (w === nw && !["had", "that"].includes(w) && nx && text.slice(t.o + t.l, nx.o).trim() === "") add(nx, 0, "Слово повторяется дважды.", [""], "style");
+    if (w === "a" && nx && ((VOW.test(nw) && !A_EX.test(nw)) || AN_EX.test(nw))) add(t, 1, `Перед словом, которое начинается с гласного звука, ставится an: an ${nx.w}.`, ["an"]);
+    if (w === "an" && nx && !VOW.test(nw) && !AN_EX.test(nw)) add(t, 2, `Перед согласным звуком ставится a: a ${nx.w}.`, ["a"]);
+    if (A_EX.test(nw) && w === "an" && !/^(one|once)/.test(nw) && /^u/.test(nw)) add(t, 2, `Перед ${nx.w} говорят a: первый звук «ю».`, ["a"]);
+    if (["he", "she", "it"].includes(w) && COMMON_V.has(nw) && !["to"].includes(pw)) add(nx, 0, `После ${t.w} в настоящем времени к глаголу добавляется -s: ${t.w} ${nw === "have" ? "has" : nw === "go" ? "goes" : nw === "do" ? "does" : nw === "study" ? "studies" : nw === "watch" ? "watches" : nw + "s"}.`, [nw === "have" ? "has" : nw === "go" ? "goes" : nw === "do" ? "does" : nw === "study" ? "studies" : nw === "watch" ? "watches" : nw + "s"]);
+    if (["he", "she", "it"].includes(w) && nw === "don't") add(nx, 0, `С ${t.w} говорят doesn't: ${t.w} doesn't…`, ["doesn't"]);
+    const BE = { i: "am", you: "are", we: "are", they: "are", he: "is", she: "is", it: "is" };
+    if (BE[w] && ["am", "is", "are"].includes(nw) && BE[w] !== nw && pw !== "than") add(nx, 0, `С ${t.w === "i" ? "I" : t.w} нужен ${BE[w]}.`, [BE[w]]);
+    if (["he", "she", "it"].includes(w) && nw === "have" && !["to", "will", "can", "must", "should", "would", "could", "did", "does", "do"].includes(pw)) { }
+    else if (["i", "you", "we", "they"].includes(w) && nw === "has") add(nx, 0, `С ${t.w === "i" ? "I" : t.w} говорят have, а has — только с he, she, it.`, ["have"]);
+    if (BE[w] && ["was", "were"].includes(nw)) { const right = ["you", "we", "they"].includes(w) ? "were" : "was"; if (right !== nw) add(nx, 0, `С ${t.w === "i" ? "I" : t.w} в прошлом времени нужен ${right}.`, [right]) }
+    if (["did", "didn't", "does", "doesn't", "can", "can't", "cannot", "must", "should", "will", "won't", "would", "could"].includes(w) && nx) {
+      if (nw === "to" && !["did", "does"].includes(w)) add(nx, 0, `После ${t.w} глагол идёт без to.`, [""]);
+      else if (/ed$/.test(nw) && nw.length > 4 && (await lookup(nw.replace(/ed$/, ""))) ) add(nx, 0, `После ${t.w} глагол стоит в начальной форме, без -ed.`, [nw.replace(/ied$/, "y").replace(/(.)\1ed$/, "$1").replace(/ed$/, "")]);
+      else if (["went", "saw", "ate", "took", "came", "bought", "made", "got", "gave", "wrote", "knew", "thought"].includes(nw)) { const base = { went: "go", saw: "see", ate: "eat", took: "take", came: "come", bought: "buy", made: "make", got: "get", gave: "give", wrote: "write", knew: "know", thought: "think" }[nw]; add(nx, 0, `После ${t.w} нужна начальная форма: ${base}.`, [base]) }
+      else if (COMMON_V.has(nw.replace(/e?s$/, "")) && /s$/.test(nw) && !["was", "has", "does", "is"].includes(nw)) add(nx, 0, `После ${t.w} глагол без окончания -s.`, [nw.replace(/ies$/, "y").replace(/(ch|sh|ss|x|o)es$/, "$1").replace(/s$/, "")]);
+    }
+    if (w === "more" && nx && /er$/.test(nw) && nw.length > 4 && !["other", "over", "never", "water", "number", "together", "paper", "summer", "winter", "after"].includes(nw)) add(t, 4, `Либо ${nw}, либо more + прилагательное, но не вместе.`, [""]);
+  }
+  // spelling: words missing from the dictionary (skip capitalised names)
+  for (const t of toks) {
+    if (out.some(x => t.o >= x.o && t.o < x.o + x.l)) continue;
+    const w = low(t); if (w.length < 3 || (t.w[0] === t.w[0].toUpperCase() && t.o > 0)) continue;
+    if (await lookup(w)) continue;
+    const sh = await shard(w[0]); const cands = Object.keys(sh).filter(k => !k.includes(" ") && Math.abs(k.length - w.length) <= 1 && lev(k, w) === 1).sort((a, b) => ((typeof sh[b] === "object" && sh[b].z) || 0) - ((typeof sh[a] === "object" && sh[a].z) || 0)).slice(0, 3);
+    add(t, 0, cands.length ? "Похоже на опечатку. Может быть, вы имели в виду:" : "Этого слова нет в словаре. Проверьте написание.", cands, "spell");
+  }
+  return out.sort((a, b) => a.o - b.o);
+}
+async function checkWriting(text) {
+  let issues = null, src = "offline";
+  if (navigator.onLine) { try { issues = await ltCheck(text); src = "lt" } catch (e) { issues = null } }
+  if (!issues) issues = await localCheck(text);
+  // remove overlaps
+  const clean = []; for (const it of issues) { if (!clean.some(c => it.o < c.o + c.l && c.o < it.o + it.l)) clean.push(it) }
+  if (src === "lt" && clean.length) { try { const joined = clean.map(c => c.msg.replace(/\n/g, " ")).join("\n"); const tr = await freeTranslate(joined); const lines = tr.text.split("\n"); if (lines.length === clean.length) clean.forEach((c, k) => { c.ru = lines[k] }) } catch (e) {} }
+  let h = "", last = 0;
+  clean.forEach((c, k) => { h += esc(text.slice(last, c.o)) + `<mark class="err ${c.kind}" data-err="${k}">${esc(text.slice(c.o, c.o + c.l)) || "&nbsp;"}</mark>`; last = c.o + c.l });
+  h += esc(text.slice(last));
+  const g = clean.filter(c => c.kind === "grammar").length, s = clean.filter(c => c.kind === "spell").length, st = clean.length - g - s;
+  const words = (text.match(/[A-Za-z']+/g) || []).length;
+  $("#wrOut").innerHTML = `<div class="sec"><h2>Проверка</h2><span>${src === "lt" ? "LanguageTool · онлайн" : "офлайн-проверка"}</span></div>${clean.length ? `<div class="chips" style="margin-bottom:10px">${g ? `<span class="chip">Грамматика: ${g}</span>` : ""}${s ? `<span class="chip">Орфография: ${s}</span>` : ""}${st ? `<span class="chip">Оформление: ${st}</span>` : ""}</div>` : ""}<div class="panel wrres">${h.replace(/\n/g, "<br>")}</div><div id="errBox"></div>${clean.length ? "" : `<div class="fb ok"><b>Ошибок не найдено</b>${words} ${plural(words, "слово", "слова", "слов")}. ${src === "offline" ? "Офлайн-проверка ищет только частые ошибки, с интернетом проверка подробнее." : "Отличная работа!"}</div>`}${src === "offline" && clean.length ? `<p class="note">Без интернета проверяются орфография и частые ошибки. С интернетом подключится подробная проверка LanguageTool.</p>` : ""}`;
+  if (words >= 15) { const k = "wr" + today(); if (!ST[k]) { ST[k] = 1; addXP(10) } }
+  $$("[data-err]").forEach(mk => mk.onclick = () => { const c = clean[+mk.dataset.err]; $$("[data-err]").forEach(x => x.classList.toggle("sel", x === mk)); $("#errBox").innerHTML = `<div class="fb ${c.kind === "spell" ? "bad" : "bad"}" style="margin-top:12px"><b>«${esc(text.slice(c.o, c.o + c.l)) || "…"}»</b><p>${esc(c.ru || c.msg)}</p>${c.ru && c.ru !== c.msg ? `<p class="note">${esc(c.msg)}</p>` : ""}${c.sug.length ? `<div class="phr">${c.sug.map(x => `<button data-fix="${esc(x)}">${x ? esc(x) : "удалить"}</button>`).join("")}</div>` : ""}</div>`;
+    $$("[data-fix]").forEach(b => b.onclick = () => { const ta = $("#wrText"); ta.value = text.slice(0, c.o) + b.dataset.fix + text.slice(c.o + c.l); LS.set("sc_draft", { t: 0, text: ta.value }); checkWriting(ta.value) }) });
 }
 
 /* ============ boot ============ */
