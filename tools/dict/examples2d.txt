@@ -1,0 +1,240 @@
+whisper|шептать; шёпот|She whispered something in his ear.|Она что-то прошептала ему на ухо.
+stare|пристально смотреть|Don't stare at people.|Не пялься на людей.
+glance|взглянуть мельком|He glanced at his watch.|Он мельком взглянул на часы.
+gaze|пристальный взгляд; смотреть|She gazed at the sea.|Она смотрела на море.
+sigh|вздыхать; вздох|He sighed and closed the book.|Он вздохнул и закрыл книгу.
+frown|хмуриться|Why are you frowning?|Почему ты хмуришься?
+grin|широко улыбаться; ухмылка|He grinned at me.|Он широко мне улыбнулся.
+nod|кивать|She nodded and smiled.|Она кивнула и улыбнулась.
+shrug|пожимать плечами|He just shrugged.|Он просто пожал плечами.
+wander|бродить|We wandered around the old town.|Мы бродили по старому городу.
+tremble|дрожать|Her hands were trembling.|У неё дрожали руки.
+rush|мчаться; спешка|Don't rush!|Не торопись!
+creep|подкрадываться, ползти|The cat crept towards the bird.|Кошка подкрадывалась к птице.
+grab|хватать|Grab your coat, let's go.|Хватай пальто, пошли.
+pour|наливать; литься|Pour me some tea.|Налей мне чаю.
+murmur|бормотать|She murmured a few words.|Она пробормотала несколько слов.
+scream|кричать (от страха)|Somebody screamed.|Кто-то закричал.
+weep|плакать|She wept with joy.|Она плакала от радости.
+cheerful|весёлый, жизнерадостный|A cheerful old man.|Жизнерадостный старик.
+curious|любопытный|I'm curious about it.|Мне это любопытно.
+anxious|встревоженный|I'm anxious about the exam.|Я волнуюсь из-за экзамена.
+ashamed|пристыженный|I'm ashamed of myself.|Мне стыдно за себя.
+astonished|изумлённый|She was astonished by the news.|Новость её поразила.
+delighted|восхищённый, очень довольный|I'd be delighted to come.|Я с радостью приду.
+frightened|испуганный|The child was frightened.|Ребёнок испугался.
+furious|разъярённый|He was furious with me.|Он был в ярости на меня.
+gentle|нежный, мягкий|A gentle voice.|Мягкий голос.
+grateful|благодарный|I'm very grateful to you.|Я вам очень благодарен.
+lonely|одинокий|He felt lonely.|Ему было одиноко.
+miserable|несчастный|I feel miserable.|Мне так плохо.
+nervous|нервный, взволнованный|I'm nervous before the test.|Я нервничаю перед тестом.
+puzzled|озадаченный|He looked puzzled.|Он выглядел озадаченным.
+eager|нетерпеливый, жаждущий|She was eager to learn.|Она очень хотела учиться.
+fierce|свирепый|A fierce dog.|Свирепая собака.
+wicked|злой, злобный|The wicked witch.|Злая ведьма.
+clever|умный|A clever idea.|Умная идея.
+foolish|глупый|Don't be foolish.|Не глупи.
+honest|честный|Be honest with me.|Будь со мной честен.
+polite|вежливый|Be polite to guests.|Будь вежлив с гостями.
+rude|грубый|Don't be rude!|Не груби!
+selfish|эгоистичный|A selfish giant.|Эгоистичный великан.
+shy|застенчивый|She's very shy.|Она очень застенчивая.
+silly|глупый, нелепый|What a silly question!|Какой глупый вопрос!
+splendid|великолепный|A splendid dinner.|Великолепный ужин.
+dreadful|ужасный|What dreadful weather!|Какая ужасная погода!
+tiny|крошечный|A tiny mouse.|Крошечная мышка.
+enormous|огромный|An enormous dog.|Огромная собака.
+narrow|узкий|A narrow street.|Узкая улица.
+steep|крутой|A steep hill.|Крутой холм.
+smooth|гладкий|Smooth skin.|Гладкая кожа.
+rough|грубый, шершавый; бурный|The sea was rough.|Море было бурным.
+pale|бледный|You look pale.|Ты бледный.
+bright|яркий; умный|A bright student.|Способный ученик.
+dim|тусклый|A dim light.|Тусклый свет.
+dull|скучный; тусклый|A dull day.|Скучный день.
+empty|пустой|The room was empty.|Комната была пустой.
+hollow|пустой, полый|A hollow tree.|Дуплистое дерево.
+ancient|древний|An ancient castle.|Древний замок.
+ordinary|обычный|An ordinary day.|Обычный день.
+peculiar|странный, своеобразный|A peculiar smell.|Странный запах.
+sudden|внезапный|A sudden noise.|Внезапный шум.
+suddenly|вдруг|Suddenly, the lights went out.|Вдруг погас свет.
+slightly|слегка|I'm slightly tired.|Я немного устал.
+hardly|едва, почти не|I could hardly hear him.|Я едва его слышал.
+indeed|действительно|It was indeed a mistake.|Это действительно была ошибка.
+merely|просто, всего лишь|It was merely a joke.|Это была всего лишь шутка.
+quite|довольно; совсем|I'm not quite sure.|Я не совсем уверен.
+rather|довольно; скорее|It's rather late.|Уже довольно поздно.
+somehow|как-то, каким-то образом|Somehow I found the way.|Каким-то образом я нашёл дорогу.
+somewhere|где-то, куда-то|Let's go somewhere warm.|Поехали куда-нибудь, где тепло.
+anywhere|где угодно; нигде (с not)|I can't find it anywhere.|Я нигде не могу это найти.
+nowhere|нигде, никуда|There's nowhere to sit.|Сесть некуда.
+meanwhile|тем временем|Meanwhile, Tom was cooking.|Тем временем Том готовил.
+afterwards|потом, впоследствии|We had dinner and afterwards went for a walk.|Мы поужинали, а потом пошли гулять.
+beneath|под, внизу|Beneath the surface.|Под поверхностью.
+beside|рядом с|Sit beside me.|Сядь рядом со мной.
+besides|кроме того; кроме|Besides, it's too late.|Кроме того, уже слишком поздно.
+within|внутри, в пределах|Within a week.|В течение недели.
+throughout|на протяжении|Throughout his life.|На протяжении всей его жизни.
+whenever|всякий раз, когда|Call me whenever you want.|Звони, когда захочешь.
+wherever|где бы ни|Wherever you go, I'll follow.|Куда бы ты ни пошёл, я последую.
+whatever|что бы ни; что угодно|Do whatever you want.|Делай что хочешь.
+though|хотя|I'll come, though I'm tired.|Я приду, хотя устал.
+unless|если не|We'll go unless it rains.|Мы пойдём, если не будет дождя.
+beg|умолять; просить|I beg you, stay!|Умоляю, останься!
+borrow|брать взаймы|Can I borrow your pen?|Можно одолжить твою ручку?
+lend|давать взаймы|Can you lend me some money?|Можешь одолжить мне денег?
+bury|хоронить, закапывать|The dog buried a bone.|Собака закопала кость.
+chase|гнаться; погоня|The dog chased the cat.|Собака гналась за кошкой.
+deserve|заслуживать|You deserve a rest.|Ты заслуживаешь отдыха.
+disappear|исчезать|The sun disappeared behind the clouds.|Солнце скрылось за облаками.
+discover|обнаруживать, открывать|They discovered a new island.|Они открыли новый остров.
+escape|убегать, спасаться; побег|The bird escaped from the cage.|Птица улетела из клетки.
+explore|исследовать|Let's explore the forest.|Давай исследуем лес.
+fetch|сходить и принести|Fetch me some water.|Принеси мне воды.
+float|плавать на поверхности|The boat floated on the lake.|Лодка плыла по озеру.
+fold|складывать|Fold the paper in half.|Сложи бумагу пополам.
+gather|собирать(ся)|People gathered in the square.|Люди собрались на площади.
+hang|вешать; висеть|Hang your coat here.|Повесь пальто сюда.
+hurry|спешить; спешка|Hurry up!|Поторопись!
+knock|стучать; стук|Someone knocked at the door.|Кто-то постучал в дверь.
+melt|таять|The snow is melting.|Снег тает.
+obey|подчиняться, слушаться|Obey the rules.|Соблюдай правила.
+pretend|притворяться|Stop pretending!|Хватит притворяться!
+pull|тянуть|Pull the rope.|Тяни верёвку.
+rescue|спасать; спасение|The firemen rescued the cat.|Пожарные спасли кошку.
+roar|рычать, реветь|The lion roared.|Лев зарычал.
+sink|тонуть; раковина|The ship sank.|Корабль затонул.
+spill|проливать|I spilled my coffee.|Я пролил кофе.
+stroke|гладить|She stroked the cat.|Она погладила кошку.
+swallow|глотать; ласточка|Swallow the pill.|Проглоти таблетку.
+swing|качаться; качели|The children are on the swings.|Дети на качелях.
+tear|рвать; слеза|Tears ran down her face.|Слёзы текли по её лицу.
+tie|завязывать; галстук|Tie your shoes.|Завяжи шнурки.
+vanish|исчезать|The ghost vanished.|Призрак исчез.
+wave|махать; волна|She waved goodbye.|Она помахала на прощание.
+wipe|вытирать|Wipe the table.|Протри стол.
+wrap|заворачивать|Wrap the present.|Заверни подарок.
+yell|орать, кричать|Don't yell at me!|Не ори на меня!
+admire|восхищаться|I admire your courage.|Я восхищаюсь твоей смелостью.
+apologize|извиняться|I apologize for being late.|Извините за опоздание.
+argue|спорить|Don't argue with me.|Не спорь со мной.
+complain|жаловаться|He always complains.|Он всегда жалуется.
+confess|признаваться|I must confess something.|Я должен кое в чём признаться.
+convince|убеждать|You convinced me.|Ты меня убедил.
+deny|отрицать|He denied everything.|Он всё отрицал.
+doubt|сомневаться|I doubt it.|Сомневаюсь.
+encourage|поощрять, подбадривать|My parents encouraged me.|Родители меня поддерживали.
+forgive|прощать|Please forgive me.|Пожалуйста, прости меня.
+insist|настаивать|I insist!|Я настаиваю!
+mention|упоминать|Don't mention it.|Не за что.
+persuade|уговаривать|She persuaded me to come.|Она уговорила меня прийти.
+promise|обещать; обещание|I promise.|Обещаю.
+refuse|отказывать(ся)|He refused to help.|Он отказался помочь.
+suggest|предлагать|I suggest we go home.|Предлагаю пойти домой.
+warn|предупреждать|I warned you!|Я же тебя предупреждал!
+afford|позволить себе (по деньгам)|I can't afford a new car.|Я не могу позволить себе новую машину.
+arrange|устраивать, договариваться|Let's arrange a meeting.|Давай договоримся о встрече.
+attend|посещать|I attend English classes.|Я хожу на занятия английским.
+avoid|избегать|Avoid crowded places.|Избегай людных мест.
+behave|вести себя|Behave yourself!|Веди себя хорошо!
+belong|принадлежать|This book belongs to me.|Эта книга принадлежит мне.
+bother|беспокоить|Sorry to bother you.|Извините за беспокойство.
+breathe|дышать|Breathe deeply.|Дыши глубже.
+celebrate|праздновать|Let's celebrate!|Давай отпразднуем!
+compare|сравнивать|Compare the two pictures.|Сравни две картинки.
+depend|зависеть|It depends on the weather.|Это зависит от погоды.
+describe|описывать|Describe your house.|Опиши свой дом.
+destroy|разрушать|The storm destroyed the house.|Шторм разрушил дом.
+disappoint|разочаровывать|Don't disappoint me.|Не разочаруй меня.
+earn|зарабатывать|How much do you earn?|Сколько ты зарабатываешь?
+exist|существовать|Do ghosts exist?|Существуют ли привидения?
+fail|потерпеть неудачу; провалить|I failed the exam.|Я провалил экзамен.
+hesitate|колебаться|Don't hesitate to ask.|Не стесняйтесь спрашивать.
+ignore|игнорировать|Just ignore him.|Просто не обращай на него внимания.
+invent|изобретать|Who invented the telephone?|Кто изобрёл телефон?
+manage|справляться; управлять|I'll manage.|Я справлюсь.
+notice|замечать|Did you notice his new car?|Ты заметил его новую машину?
+prefer|предпочитать|I prefer tea to coffee.|Я предпочитаю чай кофе.
+recognize|узнавать|I didn't recognize you.|Я тебя не узнал.
+recover|выздоравливать|He recovered quickly.|Он быстро поправился.
+regret|сожалеть|I regret nothing.|Я ни о чём не жалею.
+rely|полагаться|You can rely on me.|Можешь на меня положиться.
+satisfy|удовлетворять|Are you satisfied?|Вы довольны?
+struggle|бороться; борьба|It was a hard struggle.|Это была тяжёлая борьба.
+succeed|добиться успеха|If at first you don't succeed, try again.|Если не получилось с первого раза, попробуй снова.
+suffer|страдать|He suffered a lot.|Он много страдал.
+surround|окружать|The house is surrounded by trees.|Дом окружён деревьями.
+survive|выживать|They survived the storm.|Они пережили шторм.
+threaten|угрожать|He threatened me.|Он мне угрожал.
+courage|смелость|It takes courage.|Для этого нужна смелость.
+danger|опасность|You're in danger!|Ты в опасности!
+fault|вина; недостаток|It's not my fault.|Это не моя вина.
+fortune|удача; состояние (богатство)|He made a fortune.|Он сколотил состояние.
+grief|горе|She was full of grief.|Её переполняло горе.
+joy|радость|Tears of joy.|Слёзы радости.
+mercy|милосердие|Have mercy!|Пощади!
+pity|жалость; what a pity — как жаль|What a pity!|Как жаль!
+pride|гордость|Pride and prejudice.|Гордость и предубеждение.
+shame|стыд; what a shame — как жаль|What a shame!|Как жаль!
+silence|тишина|There was a long silence.|Наступила долгая тишина.
+sorrow|печаль|Joy and sorrow.|Радость и печаль.
+temper|нрав; lose one's temper — выйти из себя|He lost his temper.|Он вышел из себя.
+wisdom|мудрость|Words of wisdom.|Мудрые слова.
+anger|гнев|She couldn't hide her anger.|Она не могла скрыть гнев.
+bargain|выгодная покупка; торговаться|It's a bargain!|Это очень выгодно!
+beard|борода|An old man with a long beard.|Старик с длинной бородой.
+blanket|одеяло|A warm blanket.|Тёплое одеяло.
+branch|ветка; филиал|A bird on a branch.|Птица на ветке.
+candle|свеча|Light a candle.|Зажги свечу.
+castle|замок|An old castle.|Старый замок.
+cave|пещера|They hid in a cave.|Они спрятались в пещере.
+ceiling|потолок|A high ceiling.|Высокий потолок.
+chimney|дымоход, труба|Smoke came out of the chimney.|Из трубы шёл дым.
+cliff|утёс, обрыв|The house stood on a cliff.|Дом стоял на утёсе.
+crown|корона|The king's crown.|Корона короля.
+dust|пыль|The room was full of dust.|Комната была полна пыли.
+fairy|фея|A fairy tale.|Сказка.
+feather|перо|A white feather.|Белое перо.
+flame|пламя|The flame of a candle.|Пламя свечи.
+ghost|привидение|A ghost story.|История про привидения.
+giant|великан; гигантский|A friendly giant.|Добрый великан.
+grave|могила; серьёзный|A grave face.|Серьёзное лицо.
+harbour|гавань|The ship sailed into the harbour.|Корабль вошёл в гавань.
+hedge|живая изгородь|A hedge around the garden.|Живая изгородь вокруг сада.
+jewel|драгоценность|Gold and jewels.|Золото и драгоценности.
+ladder|лестница (приставная)|Climb the ladder.|Залезь по лестнице.
+lamp|лампа|Turn on the lamp.|Включи лампу.
+meadow|луг|Flowers in the meadow.|Цветы на лугу.
+nest|гнездо|A bird's nest.|Птичье гнездо.
+palace|дворец|The queen's palace.|Дворец королевы.
+path|тропинка|A path through the forest.|Тропинка через лес.
+pillow|подушка|A soft pillow.|Мягкая подушка.
+pond|пруд|Ducks on the pond.|Утки на пруду.
+roof|крыша|A red roof.|Красная крыша.
+servant|слуга|The servant opened the door.|Слуга открыл дверь.
+shadow|тень|Peter lost his shadow.|Питер потерял свою тень.
+shore|берег|We walked along the shore.|Мы шли по берегу.
+sword|меч|A pirate with a sword.|Пират с мечом.
+thief|вор|Stop, thief!|Держи вора!
+throne|трон|The king sat on his throne.|Король сидел на троне.
+treasure|сокровище|Buried treasure.|Зарытое сокровище.
+valley|долина|A green valley.|Зелёная долина.
+village|деревня|A quiet village.|Тихая деревня.
+wheel|колесо|A car has four wheels.|У машины четыре колеса.
+witch|ведьма|The witch had a black cat.|У ведьмы был чёрный кот.
+pirate|пират|Captain Hook was a pirate.|Капитан Крюк был пиратом.
+mermaid|русалка|The mermaids live in the lagoon.|Русалки живут в лагуне.
+lagoon|лагуна|A blue lagoon.|Голубая лагуна.
+detective|сыщик, детектив|A famous detective.|Знаменитый сыщик.
+clue|ключ, улика, подсказка|I have no clue.|Понятия не имею.
+mystery|тайна|It's a mystery.|Это загадка.
+suspect|подозревать; подозреваемый|I suspect him.|Я его подозреваю.
+remark|замечание; замечать|A clever remark.|Умное замечание.
+observe|наблюдать; замечать|Observe carefully.|Наблюдай внимательно.
+reply|отвечать; ответ|He didn't reply.|Он не ответил.
+exclaim|воскликнуть|"Wonderful!" she exclaimed.|«Чудесно!» — воскликнула она.
+declare|объявлять, заявлять|He declared war.|Он объявил войну.
+inquire|спрашивать, осведомляться|She inquired about the price.|Она поинтересовалась ценой.
+cried|закричал; заплакал|"Help!" he cried.|«Помогите!» — закричал он.

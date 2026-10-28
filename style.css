@@ -350,3 +350,8 @@ h1,h2,h3{text-wrap:balance}
 @keyframes fly{to{opacity:0;transform:translateY(-44px)}}
 .src{font-size:12px;color:var(--faint);line-height:1.5;padding:14px 16px}
 .src a{color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;font-weight:800;padding:4px 10px;border-radius:99px;background:var(--surface-2);color:var(--muted)}
+.selbar{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:55;display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:99px;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:in .25s var(--ease)}
+.selbar svg{width:18px;height:18px}
+.txt{-webkit-user-select:text;user-select:text}

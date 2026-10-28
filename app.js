@@ -246,7 +246,8 @@ async function openWord(raw, sentence, src, nextWord) {
   openSheet('<div class="skel" style="height:30px;width:40%"></div><div class="skel" style="width:70%"></div>', () => { $$(".w.on").forEach(x => x.classList.remove("on")); WC = null });
   const res = await lookup(raw); if (!WC || WC.raw !== raw) return;
   WC.res = res;
-  if (res && nextWord) { const ph = res.lemma + " " + nextWord.toLowerCase(); const pe = await rawEntry(ph); if (pe && typeof pe !== "string") WC.phrase = { head: ph, e: pe } }
+  if (res && nextWord) { const nx = nextWord.toLowerCase().split(" "); const bases = [...new Set([res.lemma, raw.toLowerCase()])];
+    for (const n of [nx.slice(0, 2).join(" "), nx[0]]) for (const b0 of bases) { if (WC.phrase || !n) continue; const ph = b0 + " " + n; const pe = await rawEntry(ph); if (pe && typeof pe !== "string") WC.phrase = { head: ph, e: pe } } }
   WC.conc = concordance([raw.toLowerCase(), res ? res.lemma : raw.toLowerCase()], sentence, RD && RD.book);
   const t = today(); ST.seen = ST.seen || {}; if (ST.seen.d !== t) ST.seen = { d: t, n: 0 }; if (ST.seen.n < 20) { ST.seen.n++; addXP(1) }
   renderWord();
@@ -278,10 +279,12 @@ function renderWord() {
   if (e && e.n) h += `<div class="box"><h4>Как употребляется</h4><p>${esc(e.n)}</p></div>`;
   if (e && e.e && e.e.length) h += `<div class="box"><h4>Примеры</h4>${e.e.map(x => `<div class="ex"><div><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div><button class="say sm" data-say="${esc(x[0])}" aria-label="Произнести">${IC.sound}</button></div>`).join("")}</div>`;
   if (WC.conc && WC.conc.length) h += `<div class="box"><h4>Встречается в книгах</h4>${WC.conc.map(c => `<div class="ex"><div><b>${markSentence(c.s, raw)}</b><span>${esc(c.b)}</span></div></div>`).join("")}</div>`;
-  h += `<div class="acts">${saved ? `<button class="btn soft" id="wDel">${IC.check} В словаре</button>` : `<button class="btn primary" id="wSave" ${!e && !WC.ai ? "disabled" : ""}>Добавить в словарь</button>`}${sentence && sentence !== raw && !WC.ai && WC.aiState !== "load" ? `<button class="btn soft" id="wAI">${IC.spark} Объяснить</button>` : ""}</div>`;
+  if (e && e.ph) h = h.replace('<div class="main-tr">', '<div class="tags" style="margin-top:12px"><span class="tag">фразовый глагол / выражение</span></div><div class="main-tr">');
+  h += `<div class="acts">${saved ? `<button class="btn soft" id="wDel">${IC.check} В словаре</button>` : `<button class="btn primary" id="wSave" ${!e && !WC.ai ? "disabled" : ""}>Добавить в словарь</button>`}${sentence && sentence !== raw && !WC.ai && WC.aiState !== "load" ? `<button class="btn soft" id="wAI">${IC.spark} Объяснить</button>` : ""}${sentence && sentence !== raw && sentence.split(" ").length > 2 ? `<button class="btn soft" id="wSent">Разобрать предложение</button>` : ""}</div>`;
   $("#sbody").innerHTML = h;
   const m = $("#wMore"); if (m) m.onclick = () => { WC.more = true; renderWord() };
-  const ph = $("#wPhr"); if (ph) ph.onclick = () => { const p = WC.phrase; WC.res = { head: p.head, lemma: p.head, e: p.e }; WC.raw = p.head; WC.phrase = null; renderWord() };
+  const ph = $("#wPhr"); if (ph) ph.onclick = () => { const p = WC.phrase; WC.res = { head: p.head, lemma: p.head, e: p.e }; WC.raw = p.head; WC.phrase = null; WC.conc = null; renderWord() };
+  const sb = $("#wSent"); if (sb) sb.onclick = () => openPhrase(WC.sentence, WC.sentence, WC.src);
   const s = $("#wSave"); if (s) s.onclick = () => saveWordFromCard(s);
   const d = $("#wDel"); if (d) d.onclick = () => { const w = findSaved(WC.raw); if (w) { putWord(Object.assign(w, { del: true })); toast("Убрано из словаря"); markSaved(); renderWord(); refreshCounters() } };
   const a = $("#wAI"); if (a) a.onclick = runAI;
@@ -327,19 +330,23 @@ function renderRead() {
   const mine = allBooks().filter(b => b.mine);
   h += `<div class="sec"><h2>Мои книги</h2><span>${mine.length ? mine.length + " " + plural(mine.length, "книга", "книги", "книг") : ""}</span></div><button class="upload" id="upBtn"><span class="ic">${IC.up}</span><span><h3>Загрузить книгу</h3><p>TXT, EPUB, FB2 или PDF. Книга сохранится на устройстве</p></span></button>`;
   if (mine.length) h += `<div class="shelf" style="margin-top:16px">${mine.map(bookTile).join("")}</div>`;
-  h += `<div class="sec"><h2>Библиотека</h2><span>от A1 к B1</span></div><div class="shelf">${BOOKS.map(bookTile).join("")}</div>`;
+  const LV = { all: () => true, a: b => /^A/.test(b.level), b1: b => /^B1/.test(b.level), b2: b => /^B2/.test(b.level) };
+  h += `<div class="sec"><h2>Библиотека</h2><span>${BOOKS.length} книг</span></div><div class="chips" style="margin-bottom:14px">${[["all", "Все"], ["a", "A1–A2"], ["b1", "B1"], ["b2", "B2+"]].map(([k, n]) => `<button class="chip ${libF === k ? "on" : ""}" data-lib="${k}">${n}</button>`).join("")}</div><div class="shelf">${BOOKS.filter(LV[libF] || LV.all).map(bookTile).join("")}</div>`;
   return h;
 }
-function bookTile(b) { const pr = bookProgress(b); return `<button class="book" data-open="${b.id}">${coverHTML(b)}<div><div class="bt">${esc(b.title)}</div><div class="ba">${esc(b.author || "")}${pr > 0 ? ` · ${Math.round(pr * 100)}%` : ""}</div></div></button>` }
+let libF = "all";
+const readTime = b => { const m = Math.round((b.words || 0) / 130); return m < 60 ? m + " мин" : Math.round(m / 60) + " ч" };
+function bookTile(b) { const pr = bookProgress(b); return `<button class="book" data-open="${b.id}">${coverHTML(b)}<div><div class="bt">${esc(b.title)}</div><div class="ba">${esc(b.author || "")}</div><div class="ba">${pr > 0 ? `прочитано ${Math.round(pr * 100)}%` : b.words ? `${(b.chapters || []).length} ${plural((b.chapters || []).length, "глава", "главы", "глав")} · ${readTime(b)}` : ""}</div></div></button>` }
 
 let dFilter = "all";
 function renderDict() {
   const ws = liveWords(), due = dueWords().length, learned = ws.filter(w => (w.box || 0) >= 4).length;
   let h = header("Словарь", "35 000 слов всегда под рукой");
   h += `<div class="lookup"><label class="search">${IC.search}<input id="lq" type="search" placeholder="Найти английское слово" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search"></label></div>`;
-  if (!ws.length) return h + `<div class="panel empty"><div class="big-ic">${IC.cards}</div><h3>Здесь будут ваши слова</h3><p>Откройте книгу, нажмите на незнакомое слово и добавьте его в словарь. Потом повторяйте карточки, и слова запомнятся.</p><button class="btn primary" data-open="anna">Начать с «Anna's New Home»</button></div>`;
+  if (!ws.length) return h + setsBlock() + `<div class="sec"><h2>Мои слова</h2><span></span></div><div class="panel empty"><div class="big-ic">${IC.cards}</div><h3>Здесь будут ваши слова</h3><p>Откройте книгу, нажмите на незнакомое слово и добавьте его в словарь. Потом повторяйте карточки, и слова запомнятся.</p><button class="btn primary" data-open="anna">Начать с «Anna's New Home»</button></div>`;
   h += `<div class="dstats"><div class="panel dstat"><b>${ws.length}</b><span>${plural(ws.length, "слово", "слова", "слов")}</span></div><div class="panel dstat"><b>${ws.length - learned}</b><span>учу</span></div><div class="panel dstat"><b>${learned}</b><span>выучено</span></div></div>`;
   h += `<div class="modes"><button class="panel mode" id="mCards"><span class="ic" style="background:var(--gold-soft);color:var(--gold)">${IC.cards}</span><span><h3>Карточки</h3><p>${due ? `${due} на повторение` : "Всё повторено"}</p></span></button><button class="panel mode" id="mQuiz"><span class="ic" style="background:var(--accent-soft);color:var(--accent)">${IC.quiz}</span><span><h3>Тест</h3><p>Выбрать перевод</p></span></button></div>`;
+  h += setsBlock();
   h += `<div class="sec"><h2>Мои слова</h2><span></span></div><label class="search">${IC.search}<input id="dq" type="search" placeholder="Поиск по моим словам" autocomplete="off" autocapitalize="off"></label><div class="chips" style="margin-bottom:12px"><button class="chip ${dFilter === "all" ? "on" : ""}" data-f="all">Все</button><button class="chip ${dFilter === "learn" ? "on" : ""}" data-f="learn">Учу</button><button class="chip ${dFilter === "done" ? "on" : ""}" data-f="done">Выучено</button><button class="chip ${dFilter === "due" ? "on" : ""}" data-f="due">К повторению</button></div><div class="panel list" id="dlist"></div>`;
   return h;
 }
@@ -385,10 +392,11 @@ function render() {
   m.innerHTML = `<div class="view">${tab === "read" ? renderRead() : tab === "dict" ? renderDict() : tab === "learn" ? renderLearn() : renderMe()}</div>`;
   $$(".tab").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
   refreshCounters();
-  if (tab === "read") { $("#upBtn").onclick = () => $("#file").click(); const hi = $("#hideInst"); if (hi) hi.onclick = () => { LS.set("sc_hideInstall", 1); render() } }
+  if (tab === "read") { $$("[data-lib]").forEach(c => c.onclick = () => { libF = c.dataset.lib; render() }); $("#upBtn").onclick = () => $("#file").click(); const hi = $("#hideInst"); if (hi) hi.onclick = () => { LS.set("sc_hideInstall", 1); render() } }
   if (tab === "dict") {
     fillDict(); const dq = $("#dq"); if (dq) dq.oninput = fillDict;
     $$("[data-f]").forEach(c => c.onclick = () => { dFilter = c.dataset.f; $$("[data-f]").forEach(x => x.classList.toggle("on", x === c)); fillDict() });
+    $$("[data-set]").forEach(b => b.onclick = () => openSet(b.dataset.set));
     const mc = $("#mCards"); if (mc) mc.onclick = () => startReview("cards"); const mq = $("#mQuiz"); if (mq) mq.onclick = () => startReview("quiz");
     const lq = $("#lq"); lq.onkeydown = e => { if (e.key === "Enter") { const v = lq.value.trim(); if (v) { lq.blur(); openWord(v, "", "Поиск") } } };
   }
@@ -408,7 +416,10 @@ function closeLayer(id) { const L = $(id); L.classList.remove("open"); if (!$("#
 /* ============ reader ============ */
 let RD = null;
 function splitParas(x) { return x.split(/\n\s*\n/).map(s => s.replace(/\s*\n\s*/g, " ").trim()).filter(Boolean) }
-async function getBook(id) { const b = BOOKS.find(x => x.id === id); if (b) return b; const full = await IDB.get(id); if (!full) { toast("Книга не найдена на этом устройстве"); return null } return Object.assign({ level: "Моя", mine: 1 }, MYB[id] || {}, full) }
+const BCACHE = {};
+async function getBook(id) { const b = BOOKS.find(x => x.id === id);
+  if (b && b.classic) { if (BCACHE[id]) return BCACHE[id]; try { const r = await fetch("books/" + id + ".json"); if (!r.ok) throw 0; const full = await r.json(); BCACHE[id] = Object.assign({}, b, full); return BCACHE[id] } catch (e) { toast("Не удалось открыть книгу. Подключитесь к интернету один раз, чтобы она сохранилась."); return null } }
+  if (b) return b; const full = await IDB.get(id); if (!full) { toast("Книга не найдена на этом устройстве"); return null } return Object.assign({ level: "Моя", mine: 1 }, MYB[id] || {}, full) }
 async function openBook(id, ch) {
   const b = await getBook(id); if (!b) return;
   const pos = ST.pos[id] || { ch: 0, p: 0 };
@@ -458,8 +469,8 @@ $("#reader").addEventListener("click", e => {
   if (!w) { $("#rbar").classList.toggle("hide"); return }
   $$(".w.on").forEach(x => x.classList.remove("on")); w.classList.add("on");
   const p = w.closest("p"); const sent = sentenceAt(p.textContent, +w.dataset.o);
-  let nx = w.nextElementSibling; const between = nx ? p.textContent.slice(+w.dataset.o + w.textContent.length, +nx.dataset.o) : "";
-  openWord(w.textContent, sent, RD.book.title, nx && /^\s+$/.test(between) ? nx.textContent : null);
+  const after = p.textContent.slice(+w.dataset.o + w.textContent.length).match(/^\s+([A-Za-z'’]+)(?:\s+([A-Za-z'’]+))?/);
+  openWord(w.textContent, sent, RD.book.title, after ? [after[1], after[2]].filter(Boolean).join(" ") : null);
 });
 function showToc() {
   const b = RD.book;
@@ -676,6 +687,100 @@ $("#restore").onchange = async e => {
     closeLayer("#layer"); render();
   } catch (err) { toast("Это не файл копии Словочита") }
 };
+
+/* ============ word sets by level ============ */
+let LEVELS = null;
+async function levels() { if (LEVELS) return LEVELS; try { LEVELS = await (await fetch("dict/levels.json")).json() } catch (e) { LEVELS = {} } return LEVELS }
+const SETINFO = { A1: "Самые частые слова: без них никуда", A2: "Повседневные темы и простые тексты", B1: "Для свободного чтения рассказов", B2: "Для классики и сложных текстов" };
+function setsBlock() {
+  const L = LEVELS; if (!L) { levels().then(() => { if (tab === "dict") render() }); }
+  const saved = new Set(liveWords().map(w => w.key));
+  return `<div class="sec"><h2>Наборы слов</h2><span>учить без книги</span></div><div class="panel">${Object.keys(SETINFO).map(lv => { const ws = (L && L[lv]) || []; const n = ws.filter(w => saved.has(w)).length; return `<button class="set" data-set="${lv}"><span class="k"><b>${lv} · ${ws.length || "…"} слов</b><small>${SETINFO[lv]}</small><div class="bar" style="width:140px"><i style="width:${ws.length ? n / ws.length * 100 : 0}%"></i></div></span><span class="v">${n ? n + " в словаре" : ""}${IC.chev}</span></button>` }).join("")}</div>`;
+}
+async function entryFor(w) { const e = await rawEntry(w); if (!e) return null; if (typeof e === "string") { const [lm] = e.slice(1).split("|"); const le = await rawEntry(lm); return typeof le === "string" ? null : le } return e }
+async function addWordByLemma(w, sentence, src) {
+  const e = await entryFor(w); if (!e) return false;
+  const ex = (e.e || []).slice(0, 2);
+  putWord({ key: w, w, lemma: w, tr: mainTr(e), alts: e.t ? e.t.slice(0, 4).map(t => stripStress(t[0])) : [], ipa: e.i || "", sent: sentence || (ex[0] ? ex[0][0] : ""), src: src || "", note: e.n || "", ex, ctx: "", box: 0, due: Date.now(), added: Date.now(), forms: [w] });
+  return true;
+}
+async function openSet(lv) {
+  const L = await levels(); const all = L[lv] || []; let shown = 60;
+  openLayer("#layer", `<div class="lbar"><button class="ib" id="stBack" aria-label="Назад">${IC.back}</button><div class="t">Набор ${lv}</div><span style="width:42px"></span></div><div class="page"><h1>Набор ${lv}</h1><p class="lead">${SETINFO[lv]}. Слова идут от самых частых к более редким.</p><div class="acts"><button class="btn primary" id="stAdd10">Добавить 10 новых в карточки</button></div><div class="sec"><h2>Слова</h2><span id="stCnt"></span></div><div class="panel list" id="stList"></div><button class="btn soft block" id="stMore" style="margin-top:12px">Показать ещё</button></div>`);
+  $("#stBack").onclick = () => { closeLayer("#layer"); render() };
+  const draw = async () => {
+    const saved = new Set(liveWords().map(w => w.key)); const part = all.slice(0, shown);
+    const rows = await Promise.all(part.map(async w => { const e = await entryFor(w); return `<div class="row"><span class="rw"><b>${esc(w)}</b><span>${esc(mainTr(e))}</span></span><button class="say sm" data-say="${esc(w)}" aria-label="Произнести">${IC.sound}</button><button class="ib" data-addw="${esc(w)}" aria-label="${saved.has(w) ? "В словаре" : "Добавить"}" style="color:${saved.has(w) ? "var(--accent)" : "var(--muted)"}">${saved.has(w) ? IC.check : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>'}</button></div>` }));
+    $("#stList").innerHTML = rows.join(""); $("#stCnt").textContent = `${all.filter(w => saved.has(w)).length} из ${all.length} в словаре`; $("#stMore").hidden = shown >= all.length;
+    $$("[data-addw]").forEach(b => b.onclick = async () => { const w = b.dataset.addw; if (WORDS[w] && !WORDS[w].del) { putWord(Object.assign(WORDS[w], { del: true })) } else { await addWordByLemma(w, "", "Набор " + lv); addXP(1, b) } refreshCounters(); draw() });
+  };
+  $("#stMore").onclick = () => { shown += 60; draw() };
+  $("#stAdd10").onclick = async e => { const saved = new Set(liveWords().map(w => w.key)); const fresh = all.filter(w => !saved.has(w)).slice(0, 10); for (const w of fresh) await addWordByLemma(w, "", "Набор " + lv); addXP(fresh.length, e.currentTarget); toast(`Добавлено ${fresh.length} ${plural(fresh.length, "слово", "слова", "слов")}. Они уже ждут в карточках.`); refreshCounters(); draw() };
+  draw();
+}
+
+/* ============ phrase / selection translation ============ */
+let PC = null;
+async function openPhrase(text, context, src) {
+  text = text.replace(/\s+/g, " ").trim(); if (!text) return;
+  const words = text.match(/[A-Za-z]+(?:['’][A-Za-z]+)*/g) || []; if (!words.length) return;
+  if (words.length === 1 && text.length < 30) { openWord(words[0], context || text, src); return }
+  PC = { text, context: context || text, src, ai: null, aiState: "" };
+  openSheet('<div class="skel" style="height:26px;width:60%"></div><div class="skel" style="width:80%"></div>', () => { PC = null; try { getSelection().removeAllRanges() } catch (e) {} });
+  const low = words.map(w => w.toLowerCase().replace(/’/g, "'"));
+  // whole phrase in the dictionary? try as written and with the first word's base form
+  let whole = null; if (words.length <= 5) { const first = await lookup(words[0]); for (const k of [low.join(" "), first ? [first.lemma, ...low.slice(1)].join(" ") : null]) { if (!k || whole) continue; const e = await rawEntry(k); if (e && typeof e !== "string") whole = { k, e } } }
+  // word by word, also spotting two-word phrases inside
+  const parts = []; for (let i = 0; i < words.length && i < 40; i++) {
+    const r = await lookup(words[i]); let used = 1, head = words[i], e = r && r.e, lemma = r ? r.lemma : low[i];
+    if (i + 1 < words.length) { for (const b0 of [...new Set([lemma, low[i]])]) { const pe = await rawEntry(b0 + " " + low[i + 1]); if (pe && typeof pe !== "string" && pe.c) { e = pe; head = words[i] + " " + words[i + 1]; lemma = b0 + " " + low[i + 1]; used = 2; break } } }
+    parts.push({ head, lemma, tr: e ? mainTr(e) : "" }); i += used - 1;
+  }
+  if (!PC || PC.text !== text) return; PC.whole = whole; PC.parts = parts; renderPhrase();
+  if (SET.autoAI && SET.apiKey && navigator.onLine) runPhraseAI();
+}
+function renderPhrase() {
+  if (!PC) return; const { text, context, whole, parts } = PC; const saved = WORDS[text.toLowerCase()] && !WORDS[text.toLowerCase()].del;
+  let h = `<div class="wh"><div style="flex:1;min-width:0"><div class="word" style="font-size:${text.length > 40 ? 20 : 26}px">${esc(text)}</div></div><button class="say" data-say="${esc(text)}" aria-label="Произнести">${IC.sound}</button></div>`;
+  if (whole) h += `<div class="main-tr">${esc(mainTr(whole.e))}</div>${whole.e.n ? `<p class="note">${esc(whole.e.n)}</p>` : ""}`;
+  if (PC.aiState === "load") h += `<div class="box ai"><h4>Перевод в контексте</h4><div class="skel" style="width:85%"></div><div class="skel" style="width:60%"></div></div>`;
+  else if (PC.aiState === "err") h += `<div class="box ai"><h4>Перевод в контексте</h4><p>${esc(PC.aiErr)}</p></div>`;
+  else if (PC.ai) h += `<div class="box ai"><h4>Перевод в контексте</h4><p><b>${esc(PC.ai.translation || "")}</b></p>${PC.ai.explanation ? `<p style="margin-top:6px">${esc(PC.ai.explanation)}</p>` : ""}${PC.ai.literal ? `<p class="note">Дословно: ${esc(PC.ai.literal)}</p>` : ""}</div>`;
+  if (context && context !== text) h += `<div class="box"><h4>В тексте</h4><div class="sent">${markSentence(context, text)}</div></div>`;
+  h += `<div class="box"><h4>По словам</h4>${parts.map(p => `<div class="tr-row"><b style="font-weight:700">${esc(p.head)}</b><span style="color:var(--fg);font-size:15px;font-weight:500;white-space:normal;text-align:right">${esc(p.tr || "—")}</span></div>`).join("")}<p class="note">Пословный перевод собран из офлайн-словаря. Порядок слов и смысл фразы может отличаться: для точного перевода нажмите «Перевести в контексте».</p></div>`;
+  h += `<div class="acts">${PC.ai || PC.aiState === "load" ? "" : `<button class="btn primary" id="pAI">${IC.spark} Перевести в контексте</button>`}${saved ? `<button class="btn soft" id="pDel">${IC.check} В словаре</button>` : `<button class="btn soft" id="pSave" ${!whole && !PC.ai ? "disabled" : ""}>Добавить в словарь</button>`}</div>`;
+  $("#sbody").innerHTML = h;
+  const a = $("#pAI"); if (a) a.onclick = runPhraseAI;
+  const s = $("#pSave"); if (s) s.onclick = () => { const k = text.toLowerCase(); putWord({ key: k, w: text, lemma: text, tr: whole ? mainTr(whole.e) : PC.ai.translation, alts: [], ipa: "", sent: context, src: PC.src || "", note: PC.ai ? PC.ai.explanation || "" : whole && whole.e.n || "", ex: whole && whole.e.e ? whole.e.e.slice(0, 2) : [], ctx: "", box: 0, due: Date.now(), added: Date.now(), forms: [k] }); addXP(2, s); renderPhrase(); refreshCounters() };
+  const d = $("#pDel"); if (d) d.onclick = () => { putWord(Object.assign(WORDS[text.toLowerCase()], { del: true })); renderPhrase(); refreshCounters() };
+}
+async function runPhraseAI() {
+  if (!PC) return; const ctx = PC;
+  if (!SET.apiKey) { ctx.aiState = "err"; ctx.aiErr = aiErr({ code: "nokey" }); renderPhrase(); return }
+  ctx.aiState = "load"; renderPhrase();
+  try {
+    const ck = "ph|" + hash(ctx.text + "|" + ctx.context);
+    const r = AIC[ck] || await askClaude(`Ты — преподаватель английского для русскоговорящего ученика уровня A2–B1. Ученик выделил фрагмент в книге.
+Фрагмент: "${ctx.text}"
+Контекст: "${ctx.context}"
+Ответь только JSON: {"translation":"естественный перевод фрагмента именно в этом контексте","literal":"дословный перевод, если он заметно отличается, иначе пустая строка","explanation":"1–2 предложения по-русски: как устроена фраза, есть ли идиома, фразовый глагол или особая грамматика"}`, 500);
+    AIC[ck] = r; LS.set("sc_ai", AIC); if (PC !== ctx) return; ctx.ai = r; ctx.aiState = "";
+  } catch (e) { if (PC !== ctx) return; ctx.aiState = "err"; ctx.aiErr = aiErr(e) }
+  renderPhrase();
+}
+// selection inside the reader → floating "Перевести" button
+const selBar = document.createElement("button"); selBar.className = "selbar"; selBar.hidden = true; selBar.innerHTML = IC.spark + "<span>Перевести выделенное</span>"; document.body.appendChild(selBar);
+let selT = 0, selData = null;
+document.addEventListener("selectionchange", () => {
+  clearTimeout(selT); selT = setTimeout(() => {
+    const sel = getSelection(); const t = sel && !sel.isCollapsed ? sel.toString().trim() : "";
+    const node = sel && sel.anchorNode; const p = node && (node.nodeType === 1 ? node : node.parentElement)?.closest("#txt p");
+    if (!RD || !t || !p || t.length > 400 || !/[A-Za-z]/.test(t)) { selBar.hidden = true; selData = null; return }
+    const full = p.textContent; const i = full.indexOf(t); const ctx = i >= 0 ? sentenceAt(full, i) : t;
+    selData = { t, ctx: ctx.length >= t.length && ctx.includes(t) ? ctx : t }; selBar.hidden = false;
+  }, 250);
+});
+selBar.addEventListener("click", e => { e.stopPropagation(); if (!selData) return; const d = selData; selBar.hidden = true; openPhrase(d.t, d.ctx, RD && RD.book.title) });
 
 /* ============ boot ============ */
 document.addEventListener("keydown", e => { if (e.key !== "Escape") return; if (sheet.classList.contains("open")) closeSheet(); else if ($("#layer").classList.contains("open")) { closeLayer("#layer"); render() } else if (RD) closeReader() });

@@ -1,0 +1,175 @@
+get up|вставать (с постели)|I get up at seven.|Я встаю в семь.
+wake up|просыпаться|Wake up! It's late.|Просыпайся! Уже поздно.
+sit down|садиться|Please sit down.|Пожалуйста, садитесь.
+stand up|вставать (на ноги)|Stand up, please.|Встаньте, пожалуйста.
+look at|смотреть на|Look at me.|Посмотри на меня.
+look for|искать|I'm looking for my keys.|Я ищу ключи.
+look after|заботиться, присматривать|Can you look after my cat?|Присмотришь за моей кошкой?
+look forward to|с нетерпением ждать|I'm looking forward to the holidays.|Я жду не дождусь каникул.
+look like|быть похожим|You look like your father.|Ты похож на отца.
+look out|осторожно!; выглядывать|Look out! A car!|Осторожно! Машина!
+look up|искать (в словаре); поднять взгляд|Look up the word in the dictionary.|Посмотри слово в словаре.
+give up|сдаваться; бросать (привычку)|Don't give up!|Не сдавайся!
+give back|возвращать|Give me back my book.|Верни мне мою книгу.
+go on|продолжать; происходить|Go on, I'm listening.|Продолжай, я слушаю.
+go out|выходить (из дома); гаснуть|Let's go out tonight.|Давай куда-нибудь сходим вечером.
+go back|возвращаться|Let's go back home.|Давай вернёмся домой.
+go away|уходить, уезжать|Go away!|Уходи!
+go down|спускаться; садиться (о солнце)|The sun went down.|Солнце село.
+go up|подниматься|Prices go up every year.|Цены растут каждый год.
+come back|возвращаться|Come back soon!|Возвращайся скорее!
+come in|входить|Come in, please.|Входите, пожалуйста.
+come on|давай!; ну же!|Come on, hurry up!|Давай, быстрее!
+come from|быть родом из|Where do you come from?|Откуда ты родом?
+come across|случайно наткнуться|I came across an old photo.|Я наткнулся на старую фотографию.
+come up with|придумать|She came up with a great idea.|Она придумала отличную идею.
+find out|выяснить, узнать|I found out the truth.|Я узнал правду.
+turn on|включать|Turn on the TV.|Включи телевизор.
+turn off|выключать|Turn off the light.|Выключи свет.
+turn into|превращаться в|The frog turned into a prince.|Лягушка превратилась в принца.
+turn around|оборачиваться|She turned around and smiled.|Она обернулась и улыбнулась.
+put on|надевать|Put on your coat.|Надень пальто.
+put off|откладывать|Don't put it off till tomorrow.|Не откладывай на завтра.
+put away|убирать на место|Put away your toys.|Убери игрушки.
+take off|снимать (одежду); взлетать|Take off your shoes.|Сними обувь.
+take care of|заботиться о|Take care of yourself.|Береги себя.
+take part in|принимать участие|I took part in the competition.|Я участвовал в конкурсе.
+take place|происходить, иметь место|The concert takes place on Friday.|Концерт пройдёт в пятницу.
+pick up|поднимать; забирать (кого-то)|I'll pick you up at the station.|Я заберу тебя на вокзале.
+put up with|терпеть, мириться|I can't put up with the noise.|Я не могу терпеть этот шум.
+get on|садиться (в транспорт); ладить|Get on the bus.|Садись в автобус.
+get off|выходить (из транспорта)|Get off at the next stop.|Выходи на следующей остановке.
+get on with|ладить с|I get on well with my sister.|Я хорошо лажу с сестрой.
+get back|возвращаться|When did you get back?|Когда ты вернулся?
+get in|входить; садиться (в машину)|Get in the car.|Садись в машину.
+get out|выходить; убираться|Get out of here!|Убирайся отсюда!
+get over|справиться, пережить|She got over her illness.|Она справилась с болезнью.
+get rid of|избавиться от|Get rid of old clothes.|Избавься от старой одежды.
+run away|убегать|The dog ran away.|Собака убежала.
+run out of|закончиться (о запасе)|We've run out of milk.|У нас закончилось молоко.
+break down|ломаться (о машине)|Our car broke down.|Наша машина сломалась.
+break up|расставаться|They broke up last year.|Они расстались в прошлом году.
+break into|вломиться|Thieves broke into the house.|Воры вломились в дом.
+carry on|продолжать|Carry on working.|Продолжайте работать.
+calm down|успокоиться|Calm down, please.|Успокойся, пожалуйста.
+cheer up|взбодриться; не грусти|Cheer up!|Не грусти!
+fill in|заполнять (анкету)|Fill in the form.|Заполните анкету.
+grow up|вырастать, взрослеть|I grew up in Saint Petersburg.|Я вырос в Санкт-Петербурге.
+hang out|проводить время, тусоваться|We hang out at the park.|Мы тусуемся в парке.
+hold on|подожди; держись|Hold on a minute.|Подожди минутку.
+keep on|продолжать|Keep on trying.|Продолжай пытаться.
+let down|подвести|Don't let me down.|Не подведи меня.
+make up|выдумывать; мириться|He made up a story.|Он выдумал историю.
+make sure|убедиться|Make sure the door is locked.|Убедись, что дверь заперта.
+pass away|скончаться|Her grandfather passed away.|Её дедушка скончался.
+point out|указать, отметить|She pointed out my mistake.|Она указала на мою ошибку.
+set off|отправиться в путь|We set off early in the morning.|Мы отправились рано утром.
+set up|устанавливать; основывать|He set up his own business.|Он открыл своё дело.
+show off|хвастаться, выпендриваться|Stop showing off!|Хватит выпендриваться!
+slow down|замедлять(ся)|Slow down, please.|Помедленнее, пожалуйста.
+think about|думать о|What are you thinking about?|О чём ты думаешь?
+throw away|выбрасывать|Don't throw it away.|Не выбрасывай это.
+try on|примерять|Can I try on this dress?|Можно примерить это платье?
+wait for|ждать (кого-то)|Wait for me!|Подожди меня!
+work out|тренироваться; получаться; понять|Everything will work out.|Всё получится.
+write down|записывать|Write down the number.|Запиши номер.
+belong to|принадлежать|This bag belongs to Anna.|Эта сумка принадлежит Анне.
+depend on|зависеть от|It depends on you.|Это зависит от тебя.
+listen to|слушать|Listen to me.|Послушай меня.
+talk to|говорить с|Can I talk to you?|Можно с тобой поговорить?
+laugh at|смеяться над|Don't laugh at me.|Не смейся надо мной.
+deal with|иметь дело, справляться|I'll deal with it.|Я с этим разберусь.
+agree with|соглашаться с|I agree with you.|Я согласен с тобой.
+be afraid of|бояться|I'm afraid of dogs.|Я боюсь собак.
+be good at|хорошо уметь|She's good at maths.|Она хорошо разбирается в математике.
+be interested in|интересоваться|I'm interested in music.|Я интересуюсь музыкой.
+be proud of|гордиться|I'm proud of you.|Я горжусь тобой.
+be fond of|любить, увлекаться|He is fond of books.|Он любит книги.
+be tired of|устать от|I'm tired of waiting.|Я устал ждать.
+be used to|привыкнуть к|I'm used to the cold.|Я привык к холоду.
+used to|раньше (что-то делал)|I used to play the piano.|Раньше я играл на пианино.
+have to|быть вынужденным, должен|I have to go.|Мне нужно идти.
+had better|лучше бы (совет)|You'd better hurry.|Тебе лучше поторопиться.
+would rather|предпочёл бы|I'd rather stay home.|Я бы лучше остался дома.
+going to|собираться (что-то сделать)|I'm going to visit my grandma.|Я собираюсь навестить бабушку.
+a lot of|много|A lot of people.|Много людей.
+a little|немного|I speak a little English.|Я немного говорю по-английски.
+a few|несколько|A few days ago.|Несколько дней назад.
+at last|наконец|At last we're home!|Наконец мы дома!
+at least|по крайней мере|At least say thank you.|Хотя бы скажи спасибо.
+at first|сначала|At first I didn't like it.|Сначала мне не нравилось.
+at once|сразу, немедленно|Come here at once!|Иди сюда немедленно!
+all of a sudden|вдруг, внезапно|All of a sudden it started to rain.|Вдруг пошёл дождь.
+as soon as|как только|Call me as soon as you arrive.|Позвони, как только приедешь.
+as well|тоже, также|I'll have tea as well.|Мне тоже чай.
+as usual|как обычно|He was late as usual.|Он опоздал, как обычно.
+by the way|кстати|By the way, where's Tom?|Кстати, где Том?
+by heart|наизусть|Learn the poem by heart.|Выучи стихотворение наизусть.
+for example|например|For example, apples and pears.|Например, яблоки и груши.
+for a while|некоторое время|Stay for a while.|Побудь немного.
+for ever|навсегда|I'll love you for ever.|Я буду любить тебя вечно.
+from time to time|время от времени|I see him from time to time.|Я вижу его время от времени.
+in fact|на самом деле|In fact, I was wrong.|На самом деле я ошибался.
+in front of|перед|In front of the house.|Перед домом.
+in time|вовремя; со временем|We arrived just in time.|Мы приехали как раз вовремя.
+on time|вовремя (точно по расписанию)|The train is on time.|Поезд идёт по расписанию.
+in a hurry|в спешке|I'm in a hurry.|Я спешу.
+of course|конечно|Of course you can.|Конечно, можешь.
+on foot|пешком|We went there on foot.|Мы пошли туда пешком.
+on purpose|нарочно|He did it on purpose.|Он сделал это нарочно.
+once upon a time|жили-были, однажды|Once upon a time there was a princess.|Жила-была принцесса.
+so far|пока что|So far, so good.|Пока всё хорошо.
+such as|такой как, например|Fruit such as apples.|Фрукты, например яблоки.
+thank you|спасибо|Thank you very much!|Большое спасибо!
+no longer|больше не|He no longer lives here.|Он здесь больше не живёт.
+at all|вообще, совсем|I don't like it at all.|Мне это совсем не нравится.
+all right|в порядке; хорошо|Are you all right?|Ты в порядке?
+each other|друг друга|They love each other.|Они любят друг друга.
+one another|друг друга|They helped one another.|Они помогали друг другу.
+right now|прямо сейчас|I'm busy right now.|Я сейчас занят.
+in order to|чтобы|I study in order to pass the exam.|Я учусь, чтобы сдать экзамен.
+instead of|вместо|Tea instead of coffee.|Чай вместо кофе.
+because of|из-за|We stayed home because of the rain.|Мы остались дома из-за дождя.
+according to|согласно|According to the news.|Согласно новостям.
+in spite of|несмотря на|In spite of the rain, we went out.|Несмотря на дождь, мы вышли.
+next to|рядом с|Sit next to me.|Сядь рядом со мной.
+out of|из, вне|Get out of the water.|Вылезай из воды.
+make a mistake|ошибиться|Everyone makes mistakes.|Все ошибаются.
+make friends|подружиться|She makes friends easily.|Она легко заводит друзей.
+make a decision|принять решение|It's time to make a decision.|Пора принять решение.
+take a photo|сфотографировать|Can you take a photo of us?|Можете нас сфотографировать?
+take a break|сделать перерыв|Let's take a break.|Давай сделаем перерыв.
+have fun|веселиться|Have fun at the party!|Повеселись на вечеринке!
+pay attention|обращать внимание|Pay attention to the details.|Обращай внимание на детали.
+change one's mind|передумать|I changed my mind.|Я передумал.
+keep in touch|оставаться на связи|Let's keep in touch.|Давай не теряться.
+lose one's way|заблудиться|We lost our way in the forest.|Мы заблудились в лесу.
+fall asleep|заснуть|I fell asleep on the sofa.|Я заснул на диване.
+fall in love|влюбиться|They fell in love.|Они влюбились.
+catch a cold|простудиться|I caught a cold.|Я простудился.
+never mind|ничего, не важно|Never mind, it's OK.|Ничего страшного.
+what's up|как дела?, что случилось?|Hey, what's up?|Привет, как дела?
+how come|как так?, почему?|How come you're here?|Как так вышло, что ты здесь?
+no wonder|неудивительно|No wonder you're tired.|Неудивительно, что ты устал.
+it's up to you|решать тебе|Tea or coffee? It's up to you.|Чай или кофе? Решай сам.
+piece of cake|пустяк, легкотня|The test was a piece of cake.|Тест был проще простого.
+break the ice|растопить лёд, начать общение|A joke helps to break the ice.|Шутка помогает растопить лёд.
+under the weather|неважно себя чувствовать|I'm feeling under the weather.|Я неважно себя чувствую.
+once in a while|иногда, время от времени|We eat out once in a while.|Мы иногда ходим в ресторан.
+in the end|в конце концов|In the end, everything was fine.|В конце концов всё было хорошо.
+at the moment|в данный момент|I'm busy at the moment.|Я сейчас занят.
+oh dear|ох, батюшки!|Oh dear! I'm late!|Ох! Я опаздываю!
+good heavens|боже мой!|Good heavens, what happened?|Боже мой, что случилось?
+my dear|мой дорогой|Come here, my dear.|Иди сюда, мой дорогой.
+make one's way|направиться, пробираться|She made her way to the door.|Она направилась к двери.
+set out|отправиться; намереваться|They set out on a long journey.|Они отправились в долгое путешествие.
+burst into tears|расплакаться|She burst into tears.|Она расплакалась.
+burst out laughing|расхохотаться|Everybody burst out laughing.|Все расхохотались.
+make up one's mind|решиться|I can't make up my mind.|Не могу решиться.
+take hold of|ухватиться|He took hold of her hand.|Он взял её за руку.
+catch sight of|заметить, увидеть|She caught sight of a rabbit.|Она заметила кролика.
+in a moment|через мгновение|I'll be back in a moment.|Я сейчас вернусь.
+in the meantime|тем временем|In the meantime, have some tea.|А пока выпей чаю.
+as if|как будто|He looked as if he was ill.|Он выглядел так, будто болен.
+even though|хотя, даже если|Even though it was late, we went.|Хотя было поздно, мы пошли.
+no matter|неважно, независимо от|No matter what happens.|Что бы ни случилось.

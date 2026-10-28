@@ -1,0 +1,313 @@
+evidence|доказательство, улики|There's no evidence.|Доказательств нет.
+follow|следовать, идти за|Follow me!|Иди за мной!
+official|официальный; чиновник|It's the official website.|Это официальный сайт.
+ok|хорошо, ладно|OK, let's go.|Ладно, пошли.
+production|производство; постановка|Car production is growing.|Производство машин растёт.
+rate|ставка, темп; оценивать|The exchange rate is good today.|Сегодня хороший курс.
+reading|чтение|Reading is my hobby.|Чтение — моё хобби.
+round|круглый; раунд; вокруг|The table is round.|Стол круглый.
+save|спасать; копить; сохранять|I'm saving money for a trip.|Я коплю деньги на поездку.
+stuff|вещи, штуки|Take your stuff with you.|Забери свои вещи.
+tax|налог|Everyone pays taxes.|Все платят налоги.
+amount|количество, сумма|A large amount of money.|Большая сумма денег.
+drive|водить; поездка|Can you drive?|Ты умеешь водить?
+feeling|чувство|I have a strange feeling.|У меня странное чувство.
+league|лига|He plays in the top league.|Он играет в высшей лиге.
+management|управление, руководство|Time management is important.|Управлять временем важно.
+match|матч; спичка; подходить|These shoes match your dress.|Эти туфли подходят к твоему платью.
+model|модель|He builds model ships.|Он строит модели кораблей.
+size|размер|What size are you?|Какой у тебя размер?
+step|шаг; ступенька|Take one step forward.|Сделай шаг вперёд.
+trust|доверять; доверие|I trust you.|Я тебе доверяю.
+central|центральный|The hotel is in central London.|Отель в центре Лондона.
+forward|вперёд|Look forward, not back.|Смотри вперёд, а не назад.
+hey|эй, привет|Hey, how are you?|Привет, как ты?
+mom|мама|My mom is a nurse.|Моя мама медсестра.
+page|страница|Turn to page ten.|Откройте страницу десять.
+range|диапазон; ассортимент|A wide range of books.|Большой выбор книг.
+review|отзыв; повторять|I read a review of the film.|Я прочитал рецензию на фильм.
+science|наука|I love science.|Я люблю науку.
+trade|торговля; торговать|Trade between countries.|Торговля между странами.
+upon|на; once upon a time — жили-были|Once upon a time there lived a king.|Жил-был король.
+various|разные, различные|For various reasons.|По разным причинам.
+attention|внимание|Pay attention, please.|Будьте внимательны, пожалуйста.
+character|персонаж; характер|He's my favourite character.|Он мой любимый персонаж.
+chief|главный; начальник|The chief of police.|Начальник полиции.
+football|футбол|We play football on Saturdays.|По субботам мы играем в футбол.
+hate|ненавидеть|I hate waiting.|Ненавижу ждать.
+lower|нижний; опускать|Lower your voice, please.|Говори тише, пожалуйста.
+natural|естественный, природный|It's natural to feel nervous.|Нервничать естественно.
+october|октябрь|It gets cold in October.|В октябре становится холодно.
+property|собственность; свойство|This is private property.|Это частная собственность.
+quality|качество|The quality is excellent.|Качество отличное.
+send|посылать, отправлять|Send me a message.|Пришли мне сообщение.
+style|стиль|I like your style.|Мне нравится твой стиль.
+vote|голосовать; голос|Who did you vote for?|За кого ты голосовал?
+amazing|потрясающий|The view is amazing!|Вид потрясающий!
+august|август|We go on holiday in August.|В августе мы едем в отпуск.
+blood|кровь|He gave blood at the hospital.|Он сдал кровь в больнице.
+complete|полный; завершать|Complete the sentences.|Закончите предложения.
+economic|экономический|An economic crisis.|Экономический кризис.
+involved|вовлечённый, участвующий|I don't want to get involved.|Я не хочу в это ввязываться.
+itself|себя, само|The door opened by itself.|Дверь открылась сама.
+language|язык|English is a global language.|Английский — мировой язык.
+lord|лорд; господин|The Lord of the Rings.|Властелин колец.
+november|ноябрь|It snowed in November.|В ноябре шёл снег.
+related|связанный; родственный|Are you two related?|Вы родственники?
+serious|серьёзный|Are you serious?|Ты серьёзно?
+stage|сцена; этап|She went on stage.|Она вышла на сцену.
+title|название, заглавие|What's the title of the book?|Как называется книга?
+add|добавлять|Add some sugar.|Добавь немного сахара.
+article|статья; артикль|I read an interesting article.|Я прочитал интересную статью.
+attack|нападение; нападать|The dog attacked the cat.|Собака напала на кошку.
+decided|решил|I decided to stay.|Я решил остаться.
+decision|решение|It was a hard decision.|Это было трудное решение.
+enjoy|наслаждаться, нравиться|Enjoy your meal!|Приятного аппетита!
+entire|весь, целый|I spent the entire day reading.|Я весь день читал.
+french|французский|Do you speak French?|Ты говоришь по-французски?
+january|январь|January is the coldest month.|Январь — самый холодный месяц.
+kill|убивать|Don't kill the spider!|Не убивай паука!
+perhaps|возможно, может быть|Perhaps you're right.|Возможно, ты прав.
+release|выпускать; освобождать|The film will be released in May.|Фильм выйдет в мае.
+situation|ситуация|It's a difficult situation.|Это трудная ситуация.
+technology|технология|Technology changes fast.|Технологии быстро меняются.
+turned|повернул; стал|He turned left.|Он повернул налево.
+website|сайт|Check our website.|Загляните на наш сайт.
+choice|выбор|You have no choice.|У тебя нет выбора.
+code|код; кодекс|Enter the code.|Введите код.
+considered|считается|He is considered the best.|Он считается лучшим.
+continue|продолжать|Please continue.|Пожалуйста, продолжайте.
+council|совет (орган)|The city council.|Городской совет.
+cover|обложка; покрывать|Don't judge a book by its cover.|Не суди книгу по обложке.
+election|выборы|The election is next month.|Выборы в следующем месяце.
+financial|финансовый|Financial problems.|Финансовые проблемы.
+foreign|иностранный|Learning a foreign language.|Изучение иностранного языка.
+hair|волосы|She has long hair.|У неё длинные волосы.
+increase|увеличивать(ся); рост|Prices increased.|Цены выросли.
+legal|законный, юридический|Is it legal?|Это законно?
+pick|выбирать; срывать; pick up — забирать|I'll pick you up at six.|Я заеду за тобой в шесть.
+race|гонка; раса|Who won the race?|Кто выиграл гонку?
+seem|казаться|You seem tired.|Ты кажешься уставшим.
+seven|семь|There are seven days in a week.|В неделе семь дней.
+sign|знак; подписывать|Sign here, please.|Подпишите здесь, пожалуйста.
+simple|простой|It's very simple.|Это очень просто.
+simply|просто|I simply don't know.|Я просто не знаю.
+staff|персонал, сотрудники|The staff are very friendly.|Персонал очень дружелюбный.
+super|супер, отличный|That's super!|Это супер!
+career|карьера|She has a great career.|У неё отличная карьера.
+crazy|сумасшедший|That's crazy!|Это безумие!
+daily|ежедневный|My daily routine.|Мой распорядок дня.
+daughter|дочь|My daughter is ten.|Моей дочери десять лет.
+december|декабрь|Christmas is in December.|Рождество в декабре.
+die|умирать|Plants die without water.|Растения погибают без воды.
+difficult|трудный|English isn't difficult.|Английский не трудный.
+figure|фигура; цифра; figure out — понять|I can't figure it out.|Не могу понять.
+hospital|больница|He's in hospital.|Он в больнице.
+loss|потеря, утрата|Sorry for your loss.|Соболезную вашей утрате.
+modern|современный|Modern art.|Современное искусство.
+paper|бумага; газета|I need a piece of paper.|Мне нужен листок бумаги.
+popular|популярный|This song is very popular.|Эта песня очень популярна.
+published|опубликованный|The book was published in 1950.|Книга была издана в 1950 году.
+safe|безопасный; сейф|Is it safe here?|Здесь безопасно?
+starting|начиная|Starting tomorrow, I'll run every day.|С завтрашнего дня буду бегать каждый день.
+version|версия|The new version is better.|Новая версия лучше.
+whose|чей|Whose bag is this?|Чья это сумка?
+writing|письмо, сочинение|Writing is hard work.|Писать — это тяжёлый труд.
+army|армия|He served in the army.|Он служил в армии.
+earth|Земля; земля, почва|The Earth goes round the Sun.|Земля вращается вокруг Солнца.
+forget|забывать|Don't forget your keys.|Не забудь ключи.
+goal|цель; гол|What's your goal?|Какая у тебя цель?
+huge|огромный|They have a huge house.|У них огромный дом.
+internet|интернет|I found it on the internet.|Я нашёл это в интернете.
+okay|ладно, хорошо|Is everything okay?|Всё в порядке?
+practice|практика; упражняться|Practice makes perfect.|Повторение — мать учения.
+sir|сэр|Yes, sir.|Да, сэр.
+success|успех|Good luck and success!|Удачи и успехов!
+towards|по направлению к|He walked towards the door.|Он пошёл к двери.
+waiting|ожидание; ждущий|I'm waiting for the bus.|Я жду автобус.
+ways|способы; пути|There are many ways to learn.|Есть много способов учиться.
+access|доступ|I have no access to the internet.|У меня нет доступа к интернету.
+base|основа; база|The base of the mountain.|Подножие горы.
+below|ниже, под|Write your answer below.|Напишите ответ ниже.
+deep|глубокий|The lake is very deep.|Озеро очень глубокое.
+mark|отметка; знак; отмечать|I got a good mark.|Я получил хорошую оценку.
+missing|пропавший, отсутствующий|My key is missing.|Мой ключ пропал.
+offer|предлагать; предложение|Can I offer you some tea?|Предложить вам чаю?
+professional|профессиональный|She's a professional singer.|Она профессиональная певица.
+risk|риск; рисковать|It's not worth the risk.|Это не стоит риска.
+ten|десять|I'll be back in ten minutes.|Вернусь через десять минут.
+truth|правда|Tell me the truth.|Скажи мне правду.
+box|коробка|Put it in the box.|Положи это в коробку.
+build|строить|They're building a new school.|Они строят новую школу.
+card|карточка; открытка|I sent her a birthday card.|Я отправил ей открытку на день рождения.
+district|район, округ|A quiet district.|Тихий район.
+mine|мой (без существительного); шахта|This book is mine.|Эта книга моя.
+minister|министр|The prime minister.|Премьер-министр.
+note|записка; заметка; нота|I left you a note.|Я оставил тебе записку.
+piece|кусок, часть|A piece of cake.|Кусок торта.
+recent|недавний|In recent years.|В последние годы.
+straight|прямой; прямо|Go straight ahead.|Идите прямо.
+visit|посещать; визит|Come and visit us!|Приезжай к нам в гости!
+wall|стена|There's a picture on the wall.|На стене висит картина.
+allowed|разрешено|Dogs are not allowed.|С собаками нельзя.
+boys|мальчики|The boys are playing football.|Мальчики играют в футбол.
+culture|культура|I love Japanese culture.|Я люблю японскую культуру.
+february|февраль|February is short.|Февраль короткий.
+growth|рост|Economic growth.|Экономический рост.
+included|включён|Breakfast is included.|Завтрак включён.
+married|женатый, замужем|Are you married?|Вы женаты?
+officer|офицер; полицейский|Thank you, officer.|Спасибо, офицер.
+pain|боль|I have a pain in my back.|У меня болит спина.
+respect|уважение; уважать|I respect your decision.|Я уважаю твоё решение.
+response|ответ, реакция|I'm waiting for a response.|Я жду ответа.
+rock|камень, скала; рок|They climbed the rocks.|Они залезли на скалы.
+specific|конкретный|Can you be more specific?|Можешь сказать конкретнее?
+standard|стандарт; стандартный|It's a standard room.|Это стандартный номер.
+album|альбом|Their new album is great.|Их новый альбом отличный.
+century|век, столетие|In the 21st century.|В XXI веке.
+charge|плата; заряжать; обвинение|My phone is charging.|Мой телефон заряжается.
+create|создавать|Create your own story.|Создай свою историю.
+effect|эффект, влияние|It had no effect.|Это не возымело эффекта.
+eight|восемь|I work eight hours a day.|Я работаю восемь часов в день.
+except|кроме|Everyone came except Tom.|Пришли все, кроме Тома.
+limited|ограниченный|Time is limited.|Время ограничено.
+moving|трогательный; переезд|The film was very moving.|Фильм был очень трогательный.
+network|сеть|A social network.|Социальная сеть.
+peace|мир, покой|Leave me in peace.|Оставь меня в покое.
+recently|недавно|I recently moved here.|Я недавно сюда переехал.
+required|необходимый, обязательный|A passport is required.|Нужен паспорт.
+store|магазин; хранить|Store it in a cool place.|Храните в прохладном месте.
+student|студент, ученик|I'm a student.|Я студент.
+track|трек; дорожка; след|The next track on the album.|Следующий трек альбома.
+weight|вес|I want to lose weight.|Я хочу похудеть.
+addition|добавление; in addition — кроме того|In addition, it's cheap.|Кроме того, это дёшево.
+ahead|впереди, вперёд|Go ahead!|Давай, вперёд!
+allow|позволять|Allow me to help.|Позвольте мне помочь.
+association|ассоциация, объединение|A football association.|Футбольная ассоциация.
+beat|бить; побеждать; ритм|We beat them 3–0.|Мы обыграли их 3:0.
+brown|коричневый|She has brown eyes.|У неё карие глаза.
+capital|столица; заглавная буква|Moscow is the capital of Russia.|Москва — столица России.
+committee|комитет|The committee meets on Monday.|Комитет собирается в понедельник.
+conference|конференция|I'm going to a conference.|Я еду на конференцию.
+difference|разница|What's the difference?|В чём разница?
+double|двойной; удваивать|A double room, please.|Двухместный номер, пожалуйста.
+expect|ожидать|I didn't expect you.|Я тебя не ждал.
+gas|газ; бензин (амер.)|We need gas for the car.|Машине нужен бензин.
+island|остров|They live on an island.|Они живут на острове.
+moved|переехал; тронут|We moved last year.|Мы переехали в прошлом году.
+normal|нормальный, обычный|It's normal to make mistakes.|Ошибаться — нормально.
+population|население|The population of the city.|Население города.
+potential|потенциал; возможный|She has great potential.|У неё большой потенциал.
+pressure|давление|Don't put pressure on me.|Не дави на меня.
+radio|радио|I listen to the radio in the car.|Я слушаю радио в машине.
+russian|русский|I'm Russian.|Я русский.
+station|станция, вокзал|Where's the train station?|Где вокзал?
+text|текст; сообщение|Text me when you arrive.|Напиши мне, когда приедешь.
+treatment|лечение; обращение|The treatment worked.|Лечение помогло.
+western|западный|Western countries.|Западные страны.
+beginning|начало|At the beginning of the book.|В начале книги.
+campaign|кампания|An advertising campaign.|Рекламная кампания.
+certainly|конечно, несомненно|Certainly, sir.|Конечно, сэр.
+completely|полностью|I completely agree.|Я полностью согласен.
+content|содержание; довольный|I'm content with my life.|Я доволен своей жизнью.
+credit|кредит; заслуга|Can I pay by credit card?|Можно оплатить кредитной картой?
+cross|пересекать; крест; сердитый|Cross the road carefully.|Переходи дорогу осторожно.
+despite|несмотря на|Despite the rain, we went out.|Несмотря на дождь, мы пошли гулять.
+female|женский; женщина|A female doctor.|Женщина-врач.
+focus|сосредоточиться; фокус|Focus on your work.|Сосредоточься на работе.
+hi|привет|Hi! How are you?|Привет! Как дела?
+husband|муж|Her husband is a pilot.|Её муж — пилот.
+ice|лёд|The lake is covered with ice.|Озеро покрыто льдом.
+individual|индивидуальный; человек|Every individual is different.|Каждый человек уникален.
+interesting|интересный|What an interesting book!|Какая интересная книга!
+join|присоединяться|Can I join you?|Можно к вам присоединиться?
+leading|ведущий|A leading expert.|Ведущий эксперт.
+message|сообщение|Leave a message.|Оставьте сообщение.
+nearly|почти|It's nearly midnight.|Почти полночь.
+particular|особый, конкретный|Nothing in particular.|Ничего особенного.
+previous|предыдущий|The previous owner.|Предыдущий владелец.
+quickly|быстро|Come quickly!|Иди быстрее!
+region|регион, область|A mountain region.|Горный регион.
+section|раздел; секция|Read the next section.|Прочитайте следующий раздел.
+sort|сорт, вид; сортировать|What sort of music?|Какая музыка?
+speed|скорость|Reduce your speed.|Снизьте скорость.
+travel|путешествовать|I love to travel.|Я люблю путешествовать.
+consider|рассматривать, обдумывать|Consider my offer.|Подумай над моим предложением.
+contact|контакт; связываться|Contact me any time.|Свяжись со мной в любое время.
+drop|ронять; капля|Don't drop the glass!|Не урони стакан!
+fair|честный, справедливый; ярмарка|That's not fair!|Это нечестно!
+kid|ребёнок; шутить|Are you kidding?|Ты шутишь?
+link|ссылка; связь|Send me the link.|Пришли мне ссылку.
+positive|положительный|Think positive!|Думай позитивно!
+sale|продажа; распродажа|The house is for sale.|Дом продаётся.
+throughout|на протяжении, повсюду|It rained throughout the day.|Дождь шёл весь день.
+tour|тур, экскурсия|We took a tour of the city.|Мы съездили на экскурсию по городу.
+absolutely|абсолютно, совершенно|Absolutely right!|Совершенно верно!
+additional|дополнительный|Additional information.|Дополнительная информация.
+beyond|за, за пределами|Beyond the mountains.|За горами.
+conditions|условия|Weather conditions.|Погодные условия.
+extra|дополнительный, лишний|Do you have an extra pen?|У тебя есть лишняя ручка?
+forces|силы; войска|Armed forces.|Вооружённые силы.
+immediately|немедленно|Come here immediately!|Иди сюда немедленно!
+leaving|уходящий; отъезд|I'm leaving tomorrow.|Я уезжаю завтра.
+minute|минута|Wait a minute!|Подожди минутку!
+nature|природа; характер|I love nature.|Я люблю природу.
+quick|быстрый|A quick question.|Короткий вопрос.
+sell|продавать|They sell fresh fish.|Они продают свежую рыбу.
+significant|значительный|A significant change.|Значительное изменение.
+studies|учёба; исследования|How are your studies?|Как учёба?
+unless|если не|Don't call unless it's urgent.|Не звони, если это не срочно.
+winning|победный, выигрышный|The winning team.|Команда-победитель.
+agree|соглашаться|I agree with you.|Я с тобой согласен.
+computer|компьютер|My computer is slow.|Мой компьютер медленный.
+construction|строительство|The road is under construction.|Дорога на ремонте.
+episode|эпизод, серия|I watched the first episode.|Я посмотрел первую серию.
+favorite|любимый (амер.)|My favorite color is blue.|Мой любимый цвет — синий.
+income|доход|A small income.|Небольшой доход.
+justice|справедливость; правосудие|We want justice.|Мы хотим справедливости.
+manager|менеджер, управляющий|I want to speak to the manager.|Я хочу поговорить с управляющим.
+movement|движение|A sudden movement.|Резкое движение.
+photo|фото|Can I take a photo?|Можно сфотографировать?
+safety|безопасность|Safety first!|Безопасность прежде всего!
+scene|сцена; место (происшествия)|The last scene of the film.|Последняя сцена фильма.
+spend|тратить; проводить (время)|I spend a lot of time reading.|Я провожу много времени за чтением.
+statement|заявление|He made a statement.|Он сделал заявление.
+ability|способность|She has the ability to learn fast.|Она способна быстро учиться.
+calling|призвание; звоня|Teaching is her calling.|Преподавание — её призвание.
+coach|тренер; автобус|Our coach is very strict.|Наш тренер очень строгий.
+collection|коллекция|A stamp collection.|Коллекция марок.
+definitely|определённо|I'll definitely come.|Я обязательно приду.
+designed|спроектированный, задуманный|It's designed for children.|Это сделано для детей.
+friday|пятница|See you on Friday.|Увидимся в пятницу.
+gun|оружие, пистолет|He had a gun.|У него был пистолет.
+knowledge|знание|Knowledge is power.|Знание — сила.
+particularly|особенно|I particularly like this one.|Мне особенно нравится этот.
+search|поиск; искать|Search the internet.|Поищи в интернете.
+subject|предмет; тема|My favourite subject is maths.|Мой любимый предмет — математика.
+train|поезд; тренироваться|The train is late.|Поезд опаздывает.
+wide|широкий|A wide street.|Широкая улица.
+wow|ух ты|Wow, that's beautiful!|Ух ты, как красиво!
+author|автор|Who's the author?|Кто автор?
+centre|центр|In the centre of town.|В центре города.
+claim|утверждать; требование|He claims he's innocent.|Он утверждает, что невиновен.
+dad|папа|My dad cooks dinner.|Мой папа готовит ужин.
+developed|развитый|A developed country.|Развитая страна.
+fear|страх; бояться|I have a fear of spiders.|Я боюсь пауков.
+fit|подходить по размеру; в форме|The jeans don't fit me.|Джинсы мне не подходят.
+generally|обычно, в целом|I generally agree.|В целом я согласен.
+german|немецкий|She speaks German.|Она говорит по-немецки.
+global|глобальный|A global problem.|Глобальная проблема.
+hotel|гостиница|We stayed at a hotel.|Мы жили в гостинице.
+interested|заинтересованный|I'm interested in history.|Мне интересна история.
+judge|судья; судить|Don't judge people.|Не суди людей.
+lady|леди, дама|Ladies and gentlemen!|Дамы и господа!
+leader|лидер|She's a natural leader.|Она прирождённый лидер.
+lines|линии; строки|Learn your lines.|Выучи свои реплики.
+material|материал|What material is it?|Из какого это материала?
+opportunity|возможность|It's a great opportunity.|Это отличная возможность.
+plus|плюс|Two plus two is four.|Два плюс два — четыре.
+product|продукт|A new product.|Новый продукт.
+regular|обычный, регулярный|I'm a regular customer.|Я постоянный клиент.
+secretary|секретарь|Ask the secretary.|Спросите секретаря.
+unit|единица; блок; раздел|Unit five of the textbook.|Пятый раздел учебника.
+workers|рабочие, работники|Factory workers.|Заводские рабочие.

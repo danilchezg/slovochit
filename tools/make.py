@@ -31,7 +31,7 @@ def icon(size, maskable=False):
 def main():
     if os.path.exists(DIST): shutil.rmtree(DIST)
     os.makedirs(DIST)
-    for item in ["index.html", "style.css", "app.js", "content.js", "manifest.webmanifest", "dict", "fonts", "lib", "LICENSE-DATA.md", "README.md"]:
+    for item in ["index.html", "style.css", "app.js", "content.js", "manifest.webmanifest", "dict", "books", "fonts", "lib", "LICENSE-DATA.md", "README.md"]:
         src = os.path.join(ROOT, item)
         if os.path.isdir(src): shutil.copytree(src, os.path.join(DIST, item))
         elif os.path.exists(src): shutil.copy(src, DIST)
