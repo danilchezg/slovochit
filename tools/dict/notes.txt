@@ -1,0 +1,42 @@
+a|Неопределённый артикль. Ставится перед одним предметом, о котором говорят впервые или «какой-то, любой»: a dog — (какая-то) собака. Перед гласным звуком превращается в an: an apple.
+an|То же, что a, но перед гласным звуком: an apple, an hour (h не читается).
+the|Определённый артикль. Показывает, что речь о конкретном, уже известном предмете: the dog — та самая собака. На русский обычно не переводится.
+to|1) Направление «к, в»: go to school. 2) Частица перед глаголом в начальной форме: I want to sleep — я хочу спать. После can, must, should частица to не нужна.
+at|Точка в пространстве или точное время: at the door — у двери, at 5 o'clock — в пять часов, at home — дома.
+in|Внутри чего-то или в пределах периода: in the room, in May, in 2026, in the morning.
+on|На поверхности или в определённый день: on the table, on Monday, on 5 June.
+of|Связывает слова, как русский родительный падеж: a cup of tea — чашка чая, the end of the story — конец истории.
+do|1) Делать: do homework. 2) Вспомогательный глагол для вопросов и отрицаний в Present Simple: Do you like it? I don't know. С he/she/it — does.
+make|Делать в смысле «создавать, изготавливать»: make tea, make a cake, make a mistake. Do — про действие или работу вообще: do homework.
+have|1) Иметь, «у меня есть»: I have a cat. 2) Есть или пить: have lunch, have tea. 3) Вспомогательный глагол в Present Perfect: I have seen it. С he/she/it — has.
+get|Очень многозначное слово: получать (get a letter), становиться (get cold), добираться (get home), понимать (I get it).
+say|Сказать что-то, произнести слова: say hello, What did you say? Кому — через to: say to me.
+tell|Рассказать или сообщить кому-то: tell me a story. После tell сразу идёт человек, без to: tell him.
+speak|Говорить на языке или официально: speak English, speak to the manager.
+talk|Разговаривать, болтать: talk to a friend, talk about music.
+much|Много (о неисчисляемом): much water, much time. Чаще в вопросах и отрицаниях: How much? Not much.
+many|Много (о том, что можно посчитать): many books, many people. How many? — сколько?
+some|Немного, несколько. Обычно в утвердительных предложениях и просьбах: I'd like some tea.
+any|Какой-нибудь, любой. Обычно в вопросах и отрицаниях: Do you have any questions? I don't have any money.
+too|1) Тоже, в конце фразы: I like it too. 2) Слишком, перед прилагательным: too hot — слишком горячий.
+so|1) Так, настолько: so cold. 2) Поэтому: I was tired, so I went to bed.
+just|1) Только что: I've just arrived. 2) Просто: It's just a game.
+will|Вспомогательный глагол будущего времени: I will help you — я помогу тебе. Сокращения: I'll, won't (will not).
+would|1) Вежливая просьба: Would you like tea? — Хотите чаю? 2) «Бы»: I would go — я бы пошёл.
+can|Мочь, уметь: I can swim. Просьба: Can you help me? После can глагол без to.
+there|1) Там: Put it there. 2) В конструкции there is / there are — «есть, находится»: There is a cat in the garden.
+it|Оно, это. Также нужно в безличных фразах, где в русском подлежащего нет: It's cold — холодно, It's raining — идёт дождь.
+like|1) Нравиться, любить: I like music. 2) Как, похожий на: like a bird, She looks like her mother.
+look|Смотреть: look at me. Выглядеть: You look tired. Look for — искать.
+watch|1) Смотреть (долго, за движением): watch TV, watch a film. 2) Наручные часы.
+see|Видеть: I see a bird. Ещё «понимать»: I see — понятно.
+hear|Слышать (само собой): I hear music. Listen to — слушать специально.
+listen|Слушать внимательно, специально. Всегда с to перед тем, что слушают: listen to music.
+go|Идти, ехать, уходить. Go to school, go home (без to перед home).
+come|Приходить, приезжать сюда, к говорящему: Come here! Come with me.
+take|Брать, взять; также «занимать время»: It takes ten minutes. Take a bus — поехать на автобусе.
+bring|Принести сюда, к говорящему: Bring me water. Take — унести, взять с собой.
+learn|Учить что-то самому, узнавать: I'm learning English.
+teach|Учить кого-то, преподавать: She teaches English.
+than|Чем, при сравнении: bigger than — больше, чем.
+then|Потом, затем; тогда: First we eat, then we play.

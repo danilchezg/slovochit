@@ -1,0 +1,375 @@
+a|I have a dog.|У меня есть собака.
+about|This book is about a little robot.|Эта книга о маленьком роботе.
+about|It takes about ten minutes.|Это занимает около десяти минут.
+after|We went for a walk after dinner.|После ужина мы пошли гулять.
+afternoon|See you in the afternoon.|Увидимся днём.
+again|Can you say that again?|Можешь повторить?
+ago|I met her two years ago.|Я познакомился с ней два года назад.
+all|All the children are here.|Все дети здесь.
+also|She also plays the piano.|Она также играет на пианино.
+always|He always drinks tea in the morning.|Утром он всегда пьёт чай.
+and|Tom and Anna are friends.|Том и Анна — друзья.
+angry|Why are you angry with me?|Почему ты на меня сердишься?
+animal|The cat is my favourite animal.|Кошка — моё любимое животное.
+answer|Please answer the question.|Пожалуйста, ответь на вопрос.
+any|Do you have any questions?|У вас есть вопросы?
+apple|She eats an apple every day.|Она каждый день съедает яблоко.
+ask|Can I ask you something?|Можно тебя кое о чём спросить?
+at|I'll meet you at the station.|Встречу тебя на вокзале.
+at|The film starts at seven.|Фильм начинается в семь.
+away|Go away!|Уходи!
+back|I'll be back in five minutes.|Я вернусь через пять минут.
+bad|The weather is bad today.|Сегодня плохая погода.
+bag|My bag is very heavy.|Моя сумка очень тяжёлая.
+ball|The dog is playing with a ball.|Собака играет с мячом.
+be|I want to be a teacher.|Я хочу быть учителем.
+beautiful|What a beautiful garden!|Какой красивый сад!
+because|I'm late because I missed the bus.|Я опоздал, потому что пропустил автобус.
+bed|It's time for bed.|Пора спать.
+before|Wash your hands before lunch.|Мой руки перед обедом.
+begin|The lesson begins at nine.|Урок начинается в девять.
+behind|The cat is behind the door.|Кошка за дверью.
+believe|I don't believe you.|Я тебе не верю.
+best|She is my best friend.|Она моя лучшая подруга.
+big|They live in a big house.|Они живут в большом доме.
+bird|A bird is singing outside.|На улице поёт птица.
+bite|Don't worry, the dog won't bite.|Не бойся, собака не укусит.
+black|He wore a black coat.|На нём было чёрное пальто.
+blue|The sky is blue.|Небо голубое.
+boat|We crossed the river by boat.|Мы переплыли реку на лодке.
+book|I'm reading a good book.|Я читаю хорошую книгу.
+book|I'd like to book a table.|Я бы хотел забронировать столик.
+bored|I'm bored. Let's go out.|Мне скучно. Пойдём погуляем.
+boy|The boy is ten years old.|Мальчику десять лет.
+brave|You were very brave.|Ты был очень храбрым.
+bread|Can you buy some bread?|Купишь хлеба?
+bridge|There is an old bridge over the river.|Через реку перекинут старый мост.
+bright|The room is warm and bright.|Комната тёплая и светлая.
+bring|Bring me a glass of water, please.|Принеси мне стакан воды, пожалуйста.
+brother|My brother is older than me.|Мой брат старше меня.
+but|I like tea, but I don't like coffee.|Я люблю чай, но не люблю кофе.
+buy|I want to buy a new phone.|Я хочу купить новый телефон.
+by|Sit by the window.|Сядь у окна.
+by|This book was written by a young writer.|Эту книгу написал молодой писатель.
+cake|She made a chocolate cake.|Она испекла шоколадный торт.
+call|Call me tomorrow.|Позвони мне завтра.
+call|His name is Robert, but we call him Bob.|Его зовут Роберт, но мы зовём его Боб.
+can|I can swim.|Я умею плавать.
+can|Can you help me?|Можешь мне помочь?
+cat|The cat is sleeping on the sofa.|Кошка спит на диване.
+catch|Catch the ball!|Лови мяч!
+chair|Take a chair and sit down.|Возьми стул и садись.
+cheap|This café is cheap and good.|Это кафе дешёвое и хорошее.
+cheese|I'd like a cheese sandwich.|Мне, пожалуйста, бутерброд с сыром.
+child|She is an only child.|Она единственный ребёнок в семье.
+city|London is a very big city.|Лондон — очень большой город.
+clean|I clean my room every Saturday.|Я убираю комнату каждую субботу.
+climb|We climbed to the top of the hill.|Мы забрались на вершину холма.
+close|Please close the window.|Закрой, пожалуйста, окно.
+close|The shop is close to my house.|Магазин рядом с моим домом.
+coffee|Would you like a cup of coffee?|Хочешь чашку кофе?
+cold|It's cold outside.|На улице холодно.
+come|Come here, please.|Подойди сюда, пожалуйста.
+cry|The baby is crying.|Малыш плачет.
+cup|A cup of tea, please.|Чашку чая, пожалуйста.
+dark|It gets dark early in winter.|Зимой рано темнеет.
+day|Have a nice day!|Хорошего дня!
+dear|Dear Anna, thank you for your letter.|Дорогая Анна, спасибо за письмо.
+do|What do you do?|Чем ты занимаешься?
+do|I do my homework in the evening.|Я делаю домашнее задание вечером.
+dog|Our dog loves long walks.|Наша собака обожает долгие прогулки.
+door|Someone is at the door.|Кто-то стоит у двери.
+down|Sit down, please.|Садитесь, пожалуйста.
+drink|Drink some water.|Выпей воды.
+early|I get up early.|Я рано встаю.
+eat|What do you want to eat?|Что ты хочешь поесть?
+evening|We watch films in the evening.|По вечерам мы смотрим фильмы.
+every|I go to the gym every week.|Я хожу в спортзал каждую неделю.
+eye|She has green eyes.|У неё зелёные глаза.
+face|Wash your face.|Умой лицо.
+fall|Be careful, don't fall!|Осторожно, не упади!
+family|I have a big family.|У меня большая семья.
+far|Is it far from here?|Это далеко отсюда?
+fast|He runs very fast.|Он очень быстро бегает.
+father|My father is a doctor.|Мой отец врач.
+feel|How do you feel today?|Как ты себя сегодня чувствуешь?
+field|Cows are eating grass in the field.|Коровы щиплют траву в поле.
+find|I can't find my keys.|Не могу найти ключи.
+first|This is my first lesson.|Это мой первый урок.
+floor|My flat is on the fifth floor.|Моя квартира на пятом этаже.
+flower|She gave me a flower.|Она подарила мне цветок.
+fly|Birds can fly.|Птицы умеют летать.
+food|The food here is great.|Еда здесь отличная.
+for|This present is for you.|Этот подарок для тебя.
+for|I waited for an hour.|Я ждал целый час.
+forest|They got lost in the forest.|Они заблудились в лесу.
+free|Are you free tonight?|Ты свободен сегодня вечером?
+free|The museum is free on Sundays.|По воскресеньям музей бесплатный.
+friend|He is my old friend.|Он мой старый друг.
+from|I'm from Russia.|Я из России.
+full|The bus is full.|Автобус полный.
+funny|That's a funny story.|Это смешная история.
+garden|There are roses in the garden.|В саду растут розы.
+get|I got a letter today.|Сегодня я получил письмо.
+get|It's getting cold.|Становится холодно.
+girl|The girl has a red hat.|У девочки красная шапка.
+give|Give me your hand.|Дай мне руку.
+go|Let's go home.|Пойдём домой.
+golden|She has golden hair.|У неё золотистые волосы.
+good|Good morning!|Доброе утро!
+great|That's a great idea!|Отличная идея!
+green|I like green tea.|Я люблю зелёный чай.
+hand|Raise your hand.|Подними руку.
+happy|I'm happy to see you.|Рад тебя видеть.
+hard|She works very hard.|Она очень усердно работает.
+hard|This exercise is hard.|Это упражнение трудное.
+have|I have two sisters.|У меня две сестры.
+have|Let's have lunch.|Давай пообедаем.
+he|He is my brother.|Он мой брат.
+head|My head hurts.|У меня болит голова.
+hear|Can you hear me?|Ты меня слышишь?
+heavy|This box is too heavy.|Эта коробка слишком тяжёлая.
+hello|Hello! How are you?|Привет! Как дела?
+help|Can I help you?|Чем могу помочь?
+her|I know her.|Я её знаю.
+her|This is her bag.|Это её сумка.
+here|Come here!|Иди сюда!
+high|The mountain is very high.|Гора очень высокая.
+him|I saw him yesterday.|Я видел его вчера.
+his|This is his car.|Это его машина.
+home|I'm at home.|Я дома.
+hot|It's very hot today.|Сегодня очень жарко.
+house|Their house has a big garden.|У их дома большой сад.
+how|How are you?|Как дела?
+how|How old are you?|Сколько тебе лет?
+hungry|I'm hungry. Let's eat.|Я голоден. Давай поедим.
+i|I am a student.|Я студент.
+idea|I have an idea!|У меня есть идея!
+if|If it rains, we'll stay at home.|Если пойдёт дождь, мы останемся дома.
+in|The keys are in my bag.|Ключи у меня в сумке.
+in|My birthday is in May.|Мой день рождения в мае.
+into|She went into the room.|Она вошла в комнату.
+it|It is a beautiful day.|Сегодня прекрасный день.
+it|Where is my phone? I can't find it.|Где мой телефон? Не могу его найти.
+job|I've got a new job.|У меня новая работа.
+jump|The cat jumped onto the table.|Кошка запрыгнула на стол.
+just|I've just arrived.|Я только что приехал.
+just|It's just a game.|Это просто игра.
+keep|Keep the change.|Сдачи не надо.
+keep|Keep calm.|Сохраняй спокойствие.
+key|I lost my key.|Я потерял ключ.
+kitchen|Mum is cooking in the kitchen.|Мама готовит на кухне.
+know|I don't know.|Я не знаю.
+large|A large coffee, please.|Большой кофе, пожалуйста.
+last|I saw him last week.|Я видел его на прошлой неделе.
+last|This is the last page.|Это последняя страница.
+late|Sorry I'm late.|Извини, что опоздал.
+laugh|Everybody laughed at the joke.|Все смеялись над шуткой.
+learn|I'm learning English.|Я учу английский.
+leave|The train leaves at six.|Поезд отправляется в шесть.
+leave|Leave me alone.|Оставь меня в покое.
+letter|I wrote a letter to my friend.|Я написал письмо другу.
+letter|The word "cat" has three letters.|В слове «cat» три буквы.
+life|Life is beautiful.|Жизнь прекрасна.
+light|Turn on the light, please.|Включи, пожалуйста, свет.
+light|This bag is very light.|Эта сумка очень лёгкая.
+like|I like music.|Я люблю музыку.
+like|She looks like her mother.|Она похожа на маму.
+listen|Listen to me.|Послушай меня.
+little|A little girl is playing in the park.|Маленькая девочка играет в парке.
+little|I speak a little English.|Я немного говорю по-английски.
+live|Where do you live?|Где ты живёшь?
+long|It was a long day.|Это был долгий день.
+look|Look at this picture!|Посмотри на эту картинку!
+look|You look tired.|Ты выглядишь уставшим.
+lose|Don't lose your ticket.|Не потеряй билет.
+lost|I think we're lost.|Кажется, мы заблудились.
+love|I love you.|Я тебя люблю.
+lovely|What a lovely day!|Какой чудесный день!
+make|I'll make some tea.|Я сделаю чай.
+make|She made a mistake.|Она ошиблась.
+man|Who is that man?|Кто этот мужчина?
+many|How many books do you have?|Сколько у тебя книг?
+me|Call me later.|Позвони мне позже.
+milk|Do you take milk in your tea?|Ты пьёшь чай с молоком?
+moment|Wait a moment, please.|Подождите минутку, пожалуйста.
+month|I'll see you next month.|Увидимся в следующем месяце.
+morning|I go running in the morning.|Утром я бегаю.
+mother|My mother is a teacher.|Моя мама — учительница.
+mouse|A little mouse lives under the floor.|Под полом живёт маленькая мышка.
+much|How much is it?|Сколько это стоит?
+much|Thank you very much!|Большое спасибо!
+music|What music do you like?|Какую музыку ты любишь?
+my|This is my room.|Это моя комната.
+name|What's your name?|Как тебя зовут?
+near|Is there a shop near here?|Здесь рядом есть магазин?
+need|I need your help.|Мне нужна твоя помощь.
+neighbour|Our neighbour has a big dog.|У нашего соседа большая собака.
+never|I never drink coffee.|Я никогда не пью кофе.
+new|I have a new phone.|У меня новый телефон.
+next|See you next week!|Увидимся на следующей неделе!
+next|The shop is next to the bank.|Магазин рядом с банком.
+night|Good night!|Спокойной ночи!
+no|No, thank you.|Нет, спасибо.
+no|There is no milk.|Молока нет.
+nobody|Nobody knows the answer.|Никто не знает ответа.
+not|I'm not tired.|Я не устал.
+nothing|There's nothing in the box.|В коробке ничего нет.
+now|I'm busy now.|Я сейчас занят.
+of|a cup of tea|чашка чая
+of|the end of the story|конец истории
+old|My grandfather is very old.|Мой дедушка очень старый.
+old|How old are you?|Сколько тебе лет?
+on|The book is on the table.|Книга на столе.
+on|See you on Monday.|Увидимся в понедельник.
+once|Once upon a time, there was a king.|Жил-был король.
+once|I go to the gym once a week.|Я хожу в спортзал раз в неделю.
+one|I have one brother.|У меня один брат.
+only|It's only five o'clock.|Сейчас только пять часов.
+open|Open your books, please.|Откройте, пожалуйста, книги.
+open|The shop is open.|Магазин открыт.
+or|Tea or coffee?|Чай или кофе?
+other|Where is my other shoe?|Где мой второй ботинок?
+our|This is our house.|Это наш дом.
+out|Let's go out tonight.|Давай куда-нибудь сходим сегодня вечером.
+over|The plane flew over the city.|Самолёт пролетел над городом.
+over|The game is over.|Игра окончена.
+people|There are many people here.|Здесь много людей.
+picture|Can I take a picture?|Можно сфотографировать?
+place|This is a nice place.|Это хорошее место.
+play|The children are playing outside.|Дети играют на улице.
+play|He plays the guitar.|Он играет на гитаре.
+please|Please sit down.|Пожалуйста, садитесь.
+pocket|My phone is in my pocket.|Телефон у меня в кармане.
+poor|The poor dog is cold.|Бедной собаке холодно.
+put|Put your bag here.|Положи сумку сюда.
+quiet|Please be quiet.|Пожалуйста, тише.
+rain|It's raining.|Идёт дождь.
+read|I read before bed.|Я читаю перед сном.
+ready|Are you ready?|Ты готов?
+real|Is this a real story?|Это реальная история?
+red|She has a red dress.|У неё красное платье.
+river|We swam in the river.|Мы купались в реке.
+room|My room is small but cosy.|Моя комната маленькая, но уютная.
+run|I run every morning.|Я бегаю каждое утро.
+sad|Why are you sad?|Почему ты грустишь?
+say|What did you say?|Что ты сказал?
+school|My sister goes to school.|Моя сестра ходит в школу.
+sea|We spent the summer by the sea.|Мы провели лето на море.
+see|I can see the sea from my window.|Из окна мне видно море.
+see|See you later!|Увидимся!
+she|She is my sister.|Она моя сестра.
+ship|The ship is leaving the port.|Корабль выходит из порта.
+shop|The shop opens at nine.|Магазин открывается в девять.
+shout|Don't shout at me!|Не кричи на меня!
+show|Show me your photos.|Покажи мне свои фото.
+sister|My sister lives in Moscow.|Моя сестра живёт в Москве.
+sit|Sit next to me.|Сядь рядом со мной.
+sleep|I sleep eight hours a night.|Я сплю восемь часов в сутки.
+slow|The bus is very slow.|Автобус едет очень медленно.
+small|It's a small town.|Это маленький городок.
+smile|She has a beautiful smile.|У неё красивая улыбка.
+smile|Smile, please!|Улыбнитесь, пожалуйста!
+so|I was tired, so I went to bed.|Я устал, поэтому лёг спать.
+so|It's so cold!|Так холодно!
+some|I'd like some water.|Мне бы немного воды.
+somebody|Somebody is knocking.|Кто-то стучит.
+something|I want to tell you something.|Я хочу тебе кое-что сказать.
+sometimes|Sometimes I walk to work.|Иногда я хожу на работу пешком.
+soon|See you soon!|До скорого!
+sorry|I'm sorry.|Извини.
+speak|Do you speak English?|Вы говорите по-английски?
+stand|Please stand up.|Пожалуйста, встаньте.
+start|Let's start the lesson.|Давайте начнём урок.
+stay|Stay here.|Оставайся здесь.
+stop|Stop! The light is red.|Стой! Горит красный.
+story|Tell me a story.|Расскажи мне историю.
+strange|What a strange dream!|Какой странный сон!
+street|I live on this street.|Я живу на этой улице.
+summer|We go to the sea every summer.|Каждое лето мы ездим на море.
+sun|The sun is shining.|Светит солнце.
+sweet|These grapes are very sweet.|Этот виноград очень сладкий.
+table|Dinner is on the table.|Ужин на столе.
+take|Take an umbrella.|Возьми зонт.
+take|It takes ten minutes.|Это занимает десять минут.
+talk|Can we talk?|Мы можем поговорить?
+tall|He is very tall.|Он очень высокий.
+tea|Let's have a cup of tea.|Давай выпьем чаю.
+teach|She teaches English.|Она преподаёт английский.
+teacher|Our teacher is very kind.|Наш учитель очень добрый.
+tell|Tell me about your day.|Расскажи мне, как прошёл день.
+than|My brother is taller than me.|Мой брат выше меня.
+thank|Thank you for your help.|Спасибо за помощь.
+that|Who is that girl?|Кто та девушка?
+that|I think that he is right.|Я думаю, что он прав.
+the|Close the door, please.|Закрой, пожалуйста, дверь.
+their|This is their dog.|Это их собака.
+them|I like them.|Они мне нравятся.
+then|First we eat, then we play.|Сначала едим, потом играем.
+there|Put it there.|Положи это туда.
+there|There is a cat in the garden.|В саду кошка.
+they|They are my friends.|Они мои друзья.
+thing|I have one more thing to say.|Мне нужно сказать ещё одну вещь.
+think|I think it's a good idea.|Думаю, это хорошая идея.
+this|This is my friend Leo.|Это мой друг Лео.
+time|What time is it?|Который час?
+time|I've seen this film three times.|Я смотрел этот фильм три раза.
+tired|I'm very tired.|Я очень устал.
+to|I go to school.|Я хожу в школу.
+to|I want to sleep.|Я хочу спать.
+today|What are you doing today?|Что ты делаешь сегодня?
+tomorrow|See you tomorrow.|До завтра.
+too|I like it too.|Мне тоже нравится.
+too|This coffee is too hot.|Этот кофе слишком горячий.
+town|I grew up in a small town.|Я вырос в маленьком городке.
+tree|There's a bird in the tree.|На дереве птица.
+try|Try again.|Попробуй ещё раз.
+turn|Turn left at the bank.|У банка поверни налево.
+two|I have two cats.|У меня две кошки.
+under|The cat is under the bed.|Кошка под кроватью.
+understand|I don't understand.|Я не понимаю.
+up|Get up! It's late.|Вставай! Уже поздно.
+us|Come with us!|Пойдём с нами!
+very|It's very good.|Это очень хорошо.
+village|My grandparents live in a village.|Мои бабушка и дедушка живут в деревне.
+voice|She has a beautiful voice.|У неё красивый голос.
+wait|Wait for me!|Подожди меня!
+wake|Wake up! It's eight o'clock.|Просыпайся! Уже восемь.
+walk|Let's walk to the park.|Давай дойдём до парка пешком.
+want|I want a new bike.|Я хочу новый велосипед.
+warm|It's warm today.|Сегодня тепло.
+watch|We're watching a film.|Мы смотрим фильм.
+watch|My watch is broken.|Мои часы сломались.
+water|Can I have some water?|Можно мне воды?
+way|Is this the way to the station?|Это дорога к вокзалу?
+way|This is the best way to learn.|Это лучший способ учиться.
+we|We are a team.|Мы — команда.
+week|I work five days a week.|Я работаю пять дней в неделю.
+welcome|Welcome to our home!|Добро пожаловать к нам домой!
+well|She sings very well.|Она очень хорошо поёт.
+well|Well, I don't know.|Ну, я не знаю.
+wet|My shoes are wet.|У меня мокрые ботинки.
+what|What is this?|Что это?
+when|When is your birthday?|Когда у тебя день рождения?
+where|Where are you?|Где ты?
+white|Snow is white.|Снег белый.
+who|Who is there?|Кто там?
+why|Why are you late?|Почему ты опоздал?
+wind|The wind is very strong today.|Сегодня очень сильный ветер.
+window|Open the window, please.|Открой, пожалуйста, окно.
+winter|Winter in Russia is cold.|Зима в России холодная.
+wolf|The wolf lives in the forest.|Волк живёт в лесу.
+with|Come with me.|Пойдём со мной.
+without|I can't live without music.|Я не могу жить без музыки.
+woman|That woman is a doctor.|Та женщина — врач.
+word|What does this word mean?|Что значит это слово?
+work|I work in an office.|Я работаю в офисе.
+work|I'm going to work.|Я иду на работу.
+world|She wants to travel around the world.|Она хочет путешествовать по миру.
+write|Write your name here.|Напишите здесь своё имя.
+year|Happy New Year!|С Новым годом!
+yes|Yes, of course.|Да, конечно.
+yesterday|I was at home yesterday.|Вчера я был дома.
+you|I love you.|Я тебя люблю.
+young|She is young and beautiful.|Она молодая и красивая.
+your|Is this your phone?|Это твой телефон?
