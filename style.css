@@ -355,3 +355,8 @@ h1,h2,h3{text-wrap:balance}
 .selbar{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:55;display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:99px;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.35);animation:in .25s var(--ease)}
 .selbar svg{width:18px;height:18px}
 .txt{-webkit-user-select:text;user-select:text}
+.trline{font-size:16px;font-weight:600;margin-top:10px;line-height:1.45}
+.mu-pos{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:10px 0 2px}
+.mu{margin:0;padding-left:20px;font-size:15px;line-height:1.5}
+.mu li{margin:4px 0}
+.mu i.en{font-style:italic;color:var(--muted)}

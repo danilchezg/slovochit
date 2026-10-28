@@ -44,8 +44,9 @@ def main():
     for dp, _, fs in os.walk(DIST):
         for f in sorted(fs):
             rel = os.path.relpath(os.path.join(dp, f), DIST).replace(os.sep, "/")
-            if rel.endswith(".md"): continue
+            if rel.endswith(".md") or rel.startswith("lib/tf/") or rel == "books/_catalog.json": continue  # offline translator is cached on demand
             files.append(rel); h.update(rel.encode()); h.update(open(os.path.join(dp, f), "rb").read())
+    h.update(open(os.path.join(ROOT, "sw.js"), "rb").read())
     ver = h.hexdigest()[:10]
     sw = open(os.path.join(ROOT, "sw.js"), encoding="utf-8").read().replace("__VERSION__", ver).replace("__FILES__", json.dumps(sorted(files), ensure_ascii=False))
     open(os.path.join(DIST, "sw.js"), "w", encoding="utf-8").write(sw)

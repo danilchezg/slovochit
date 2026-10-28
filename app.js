@@ -58,7 +58,7 @@ const RSKINS = {
 };
 const RFONTS = { literata: ["Literata", '"Literata",Georgia,serif'], lora: ["Lora", '"Lora",Georgia,serif'], pt: ["PT Serif", '"PT Serif",Georgia,serif'], manrope: ["Manrope", '"Manrope",system-ui,sans-serif'], onest: ["Onest", '"Onest",system-ui,sans-serif'] };
 const COLS = { s: 520, m: 640, l: 780 };
-const DEF = { skin: "graphite", accent: "mint", rskin: "app", rfont: "literata", fs: 20, lh: 1.7, col: "m", align: "left", hl: "bg", stress: 1, ipa: 1, voice: "us", rate: 0.9, autoSay: 0, goal: 30, apiKey: "", model: "claude-haiku-5-5", autoAI: 0, hideBar: 1 };
+const DEF = { mt: "auto", autoTr: 1, skin: "graphite", accent: "mint", rskin: "app", rfont: "literata", fs: 20, lh: 1.7, col: "m", align: "left", hl: "bg", stress: 1, ipa: 1, voice: "us", rate: 0.9, autoSay: 0, goal: 30, apiKey: "", model: "claude-haiku-5-5", autoAI: 0, hideBar: 1 };
 let SET = Object.assign({}, DEF, LS.get("sc_set", {}));
 function saveSet() { LS.set("sc_set", SET); applyTheme() }
 function hexA(h, a) { const n = parseInt(h.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})` }
@@ -167,6 +167,7 @@ async function lookup(raw) {
     // a real entry; if it's also a form (e.g. "left" ← leave) remember it
     return { head: c, lemma: c, e, alsoOf: e.l || null, formOf: c !== raw.toLowerCase() && c !== cs[0] };
   }
+  for (const c of cs) { const m = await muEntry(c); if (m) return { head: c, lemma: c, e: { i: m[0], z: 30, c: muMain(m[1]), mu: 1 }, formOf: c !== raw.toLowerCase() && c !== cs[0] } }
   return null;
 }
 const stripStress = s => s.replace(/́/g, "");
@@ -236,7 +237,7 @@ function concordance(forms, exclude, curBook) {
   const out = []; const re = new RegExp("\\b(" + forms.map(f => f.replace(/[^a-z']/g, "")).filter(Boolean).join("|") + ")\\b", "i");
   const scan = (b, ps) => { for (const p of ps) { if (out.length >= 3) return; if (!re.test(p)) continue; for (const s of (p.match(/[^.!?]+[.!?]+["”’]?/g) || [p]).map(x => x.trim())) { if (out.length >= 3) return; if (re.test(s) && s !== exclude && s.length < 220 && !out.some(o => o.s === s)) out.push({ s, b: b.title }) } } };
   if (curBook) { for (const ch of curBook.chapters) { scan(curBook, ch.p || splitParas(ch.x || "")); if (out.length >= 3) break } }
-  for (const b of BOOKS) { if (out.length >= 3) break; if (curBook && b.id === curBook.id) continue; for (const ch of b.chapters) { scan(b, splitParas(ch.x)); if (out.length >= 3) break } }
+  for (const b of BOOKS) { if (out.length >= 3) break; if (b.classic || (curBook && b.id === curBook.id)) continue; for (const ch of b.chapters) { scan(b, splitParas(ch.x || "")); if (out.length >= 3) break } }
   return out;
 }
 let WC = null; // current word card context
@@ -252,6 +253,7 @@ async function openWord(raw, sentence, src, nextWord) {
   const t = today(); ST.seen = ST.seen || {}; if (ST.seen.d !== t) ST.seen = { d: t, n: 0 }; if (ST.seen.n < 20) { ST.seen.n++; addXP(1) }
   renderWord();
   if (SET.autoSay) say(raw);
+  if (SET.autoTr && sentence && sentence.split(" ").length > 2) runFreeTr(WC, renderWord);
   if (SET.autoAI && SET.apiKey && navigator.onLine && sentence && sentence.length > raw.length) runAI();
 }
 function renderWord() {
@@ -268,9 +270,10 @@ function renderWord() {
     const trs = (e.t || []); const shown = WC.more ? trs : trs.slice(0, 4);
     if (shown.length) h += `<div class="trs">${shown.map(t => `<div class="tr-row">${esc(showRu(t[0]))}<span>${esc(t[1])}</span></div>`).join("")}</div>${trs.length > 4 && !WC.more ? `<button class="more" id="wMore">Ещё ${trs.length - 4} ${plural(trs.length - 4, "значение", "значения", "значений")}</button>` : ""}`;
   }
+  h += `<div id="wMu"></div>`;
   if (res && res.alsoOf) h += `<p class="note">Также это форма глагола <b>${esc(res.alsoOf)}</b>: ${formNote(raw, res.alsoOf)}</p>`;
   if (WC.phrase) h += `<div class="phr"><button id="wPhr">«${esc(WC.phrase.head)}» — ${esc(mainTr(WC.phrase.e))}</button></div>`;
-  if (sentence && sentence !== raw) h += `<div class="box"><h4>В этом предложении</h4><div class="sent">${markSentence(sentence, raw)}</div>${note ? `<p style="margin-top:8px">${note}</p>` : ""}</div>`;
+  if (sentence && sentence !== raw) h += `<div class="box"><h4>В этом предложении</h4><div class="sent">${markSentence(sentence, raw)}</div>${trBlock(WC)}${note ? `<p style="margin-top:8px">${note}</p>` : ""}</div>`;
   else if (note) h += `<div class="box"><h4>Форма слова</h4><p>${note}</p></div>`;
   // AI box
   if (WC.aiState === "load") h += `<div class="box ai"><h4>Объяснение</h4><div class="skel" style="width:85%"></div><div class="skel" style="width:65%"></div><div class="skel" style="width:75%"></div></div>`;
@@ -283,6 +286,7 @@ function renderWord() {
   h += `<div class="acts">${saved ? `<button class="btn soft" id="wDel">${IC.check} В словаре</button>` : `<button class="btn primary" id="wSave" ${!e && !WC.ai ? "disabled" : ""}>Добавить в словарь</button>`}${sentence && sentence !== raw && !WC.ai && WC.aiState !== "load" ? `<button class="btn soft" id="wAI">${IC.spark} Объяснить</button>` : ""}${sentence && sentence !== raw && sentence.split(" ").length > 2 ? `<button class="btn soft" id="wSent">Разобрать предложение</button>` : ""}</div>`;
   $("#sbody").innerHTML = h;
   const m = $("#wMore"); if (m) m.onclick = () => { WC.more = true; renderWord() };
+  bindTr(WC, renderWord); fillMueller(WC);
   const ph = $("#wPhr"); if (ph) ph.onclick = () => { const p = WC.phrase; WC.res = { head: p.head, lemma: p.head, e: p.e }; WC.raw = p.head; WC.phrase = null; WC.conc = null; renderWord() };
   const sb = $("#wSent"); if (sb) sb.onclick = () => openPhrase(WC.sentence, WC.sentence, WC.src);
   const s = $("#wSave"); if (s) s.onclick = () => saveWordFromCard(s);
@@ -381,7 +385,7 @@ function renderMe() {
   const lv = [["A1", 300], ["A2", 800], ["B1", 1600], ["B2", 3000]];
   h += `<div class="sec"><h2>Путь к уровню</h2><span>выученные слова</span></div><div class="panel" style="padding:6px 0">${lv.map(([n, c], i) => { const prev = i ? lv[i - 1][1] : 0, p = Math.max(0, Math.min(1, (learned - prev) / (c - prev))); return `<div class="lvrow"><span class="lb">${n}</span><div class="bar"><i style="width:${p * 100}%"></i></div><small>${Math.min(learned, c)} / ${c}</small></div>` }).join("")}<p class="note" style="padding:0 16px 10px">Слово считается выученным после четырёх удачных повторений.</p></div>`;
   const row = (id, title, sub, val) => `<button class="set" data-page="${id}"><span class="k"><b>${title}</b><small>${sub}</small></span><span class="v">${val || ""}${IC.chev}</span></button>`;
-  h += `<div class="sec"><h2>Настройки</h2><span></span></div><div class="panel">${row("look", "Оформление", "Тема, цвет акцента", SKINS[SET.skin].n)}${row("reading", "Чтение", "Шрифт, размер, интервал, ширина", RFONTS[SET.rfont][0])}${row("trans", "Перевод и озвучка", "Голос, ударения, транскрипция", SET.voice === "uk" ? "Британский" : "Американский")}${row("ai", "Объяснения ИИ", "Ключ Claude API для разбора в контексте", SET.apiKey ? "включены" : "выкл.")}${row("goal", "Цель на день", "Сколько опыта набирать", SET.goal + " XP")}</div>`;
+  h += `<div class="sec"><h2>Настройки</h2><span></span></div><div class="panel">${row("look", "Оформление", "Тема, цвет акцента", SKINS[SET.skin].n)}${row("reading", "Чтение", "Шрифт, размер, интервал, ширина", RFONTS[SET.rfont][0])}${row("trans", "Перевод и озвучка", "Голос, ударения, транскрипция", SET.voice === "uk" ? "Британский" : "Американский")}${row("mt", "Перевод предложений", "Бесплатно: онлайн или на устройстве", { auto: "авто", online: "онлайн", device: "на устройстве", off: "выкл." }[SET.mt])}${row("ai", "Объяснения ИИ", "Ключ Claude API для разбора в контексте", SET.apiKey ? "включены" : "выкл.")}${row("goal", "Цель на день", "Сколько опыта набирать", SET.goal + " XP")}</div>`;
   h += `<div class="sec"><h2>Данные</h2><span>iPad ↔ iPhone</span></div><div class="panel">${row("backup", "Копия в iCloud", "Сохранить или загрузить словарь, прогресс и книги", "")}<div class="set"><span class="k"><b>Язык обучения</b><small>Итальянский появится следующим</small></span><span class="v">English</span></div></div>`;
   h += `<div class="panel src" style="margin-top:12px">Словарь собран из открытых данных <a href="https://en.openrussian.org" target="_blank" rel="noopener">OpenRussian</a> (CC BY-SA 4.0), транскрипции — CMU Pronouncing Dictionary. Работает без интернета.</div>`;
   return h;
@@ -609,7 +613,7 @@ const seg = (key, opts) => `<div class="seg" data-seg="${key}">${opts.map(([v, n
 const sw = (key) => `<button class="switch ${SET[key] ? "on" : ""}" data-sw="${key}" role="switch" aria-checked="${!!SET[key]}"></button>`;
 const sample = `<div class="preview" lang="en">Tom liked his quiet life. He had a radio, a cat called Pepper and a lot of books. Once a month, a small boat brought him food and letters.</div>`;
 function openSettings(page, fromReader) {
-  const titles = { look: "Оформление", reading: "Чтение", trans: "Перевод и озвучка", ai: "Объяснения ИИ", goal: "Цель на день", backup: "Копия в iCloud" };
+  const titles = { mt: "Перевод предложений", look: "Оформление", reading: "Чтение", trans: "Перевод и озвучка", ai: "Объяснения ИИ", goal: "Цель на день", backup: "Копия в iCloud" };
   let b = "";
   if (page === "look") {
     b += `<div class="sec"><h2>Тема</h2><span></span></div><div class="themes">${Object.entries(SKINS).map(([k, s]) => `<button class="th ${SET.skin === k ? "on" : ""}" data-skin="${k}" style="background:${s.surface};color:${s.fg}"><i style="background:linear-gradient(135deg,${s.bg} 50%,${s.s2} 50%)"></i>${s.n}</button>`).join("")}</div>`;
@@ -629,6 +633,7 @@ function openSettings(page, fromReader) {
     b += `<div class="panel" style="padding:16px;margin-top:8px"><p style="font-size:15px">Словарь работает без интернета. Кнопка «Объяснить» дополнительно разбирает слово в конкретном предложении: почему оно так употреблено, какая это форма, и даёт новые примеры.</p><p class="note">Для этого нужен свой ключ Claude API. Его можно получить на console.anthropic.com в разделе API Keys. Оплата там отдельная: один разбор стоит доли цента. Ключ хранится только на этом устройстве.</p></div>
     <div class="panel" style="margin-top:12px"><div class="set col"><span class="k"><b>Ключ API</b></span><input class="field" id="apiK" type="password" placeholder="sk-ant-…" value="${esc(SET.apiKey)}" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="acts" style="margin-top:4px"><button class="btn primary sm" id="apiSave">Сохранить</button><button class="btn soft sm" id="apiTest">Проверить</button>${SET.apiKey ? `<button class="btn warn sm" id="apiDel">Удалить ключ</button>` : ""}</div><p class="note" id="apiMsg"></p></div><div class="set col"><span class="k"><b>Модель</b><small>Быстрая дешевле, умная объясняет подробнее</small></span>${seg("model", [["claude-haiku-5-5", "Быстрая"], ["claude-sonnet-5-5", "Умная"]])}</div><div class="set"><span class="k"><b>Объяснять сразу</b><small>Без нажатия кнопки, если есть интернет</small></span>${sw("autoAI")}</div></div>`;
   }
+  if (page === "mt") b += mtSettingsHTML();
   if (page === "goal") {
     b += `<div class="panel" style="margin-top:8px"><div class="set col"><span class="k"><b>Опыт в день</b><small>1 XP — слово или минута чтения, 2 — новое слово в словаре, 3 — удачное повторение, 20 — урок</small></span>${seg("goal", [[15, "15"], [30, "30"], [50, "50"], [80, "80"]])}</div></div>`;
   }
@@ -649,6 +654,7 @@ function bindSettings(page) {
   $$("[data-acc]").forEach(b => b.onclick = () => { SET.accent = b.dataset.acc; saveSet(); openSettings("look") });
   const rng = (id, out, key, fmt) => { const r = $(id); if (!r) return; r.oninput = () => { SET[key] = +r.value; $(out).textContent = fmt ? (+r.value).toFixed(2) : r.value; saveSet() } };
   rng("#fsR", "#fsO", "fs"); rng("#lhR", "#lhO", "lh", 1); rng("#rtR", "#rtO", "rate", 1);
+  if (page === "mt") bindMtSettings();
   if (page === "ai") {
     const msg = t => $("#apiMsg").textContent = t;
     $("#apiSave").onclick = () => { SET.apiKey = $("#apiK").value.trim(); saveSet(); msg(SET.apiKey ? "Ключ сохранён на этом устройстве." : "Ключ удалён."); };
@@ -736,22 +742,23 @@ async function openPhrase(text, context, src) {
     if (i + 1 < words.length) { for (const b0 of [...new Set([lemma, low[i]])]) { const pe = await rawEntry(b0 + " " + low[i + 1]); if (pe && typeof pe !== "string" && pe.c) { e = pe; head = words[i] + " " + words[i + 1]; lemma = b0 + " " + low[i + 1]; used = 2; break } } }
     parts.push({ head, lemma, tr: e ? mainTr(e) : "" }); i += used - 1;
   }
-  if (!PC || PC.text !== text) return; PC.whole = whole; PC.parts = parts; renderPhrase();
+  if (!PC || PC.text !== text) return; PC.whole = whole; PC.parts = parts; PC.sentence = text; renderPhrase(); runFreeTr(PC, renderPhrase);
   if (SET.autoAI && SET.apiKey && navigator.onLine) runPhraseAI();
 }
 function renderPhrase() {
   if (!PC) return; const { text, context, whole, parts } = PC; const saved = WORDS[text.toLowerCase()] && !WORDS[text.toLowerCase()].del;
   let h = `<div class="wh"><div style="flex:1;min-width:0"><div class="word" style="font-size:${text.length > 40 ? 20 : 26}px">${esc(text)}</div></div><button class="say" data-say="${esc(text)}" aria-label="Произнести">${IC.sound}</button></div>`;
   if (whole) h += `<div class="main-tr">${esc(mainTr(whole.e))}</div>${whole.e.n ? `<p class="note">${esc(whole.e.n)}</p>` : ""}`;
+  h += `<div class="box"><h4>Перевод</h4>${trBlock(PC, true)}</div>`;
   if (PC.aiState === "load") h += `<div class="box ai"><h4>Перевод в контексте</h4><div class="skel" style="width:85%"></div><div class="skel" style="width:60%"></div></div>`;
   else if (PC.aiState === "err") h += `<div class="box ai"><h4>Перевод в контексте</h4><p>${esc(PC.aiErr)}</p></div>`;
   else if (PC.ai) h += `<div class="box ai"><h4>Перевод в контексте</h4><p><b>${esc(PC.ai.translation || "")}</b></p>${PC.ai.explanation ? `<p style="margin-top:6px">${esc(PC.ai.explanation)}</p>` : ""}${PC.ai.literal ? `<p class="note">Дословно: ${esc(PC.ai.literal)}</p>` : ""}</div>`;
   if (context && context !== text) h += `<div class="box"><h4>В тексте</h4><div class="sent">${markSentence(context, text)}</div></div>`;
-  h += `<div class="box"><h4>По словам</h4>${parts.map(p => `<div class="tr-row"><b style="font-weight:700">${esc(p.head)}</b><span style="color:var(--fg);font-size:15px;font-weight:500;white-space:normal;text-align:right">${esc(p.tr || "—")}</span></div>`).join("")}<p class="note">Пословный перевод собран из офлайн-словаря. Порядок слов и смысл фразы может отличаться: для точного перевода нажмите «Перевести в контексте».</p></div>`;
-  h += `<div class="acts">${PC.ai || PC.aiState === "load" ? "" : `<button class="btn primary" id="pAI">${IC.spark} Перевести в контексте</button>`}${saved ? `<button class="btn soft" id="pDel">${IC.check} В словаре</button>` : `<button class="btn soft" id="pSave" ${!whole && !PC.ai ? "disabled" : ""}>Добавить в словарь</button>`}</div>`;
+  h += `<div class="box"><h4>По словам</h4>${parts.map(p => `<div class="tr-row"><b style="font-weight:700">${esc(p.head)}</b><span style="color:var(--fg);font-size:15px;font-weight:500;white-space:normal;text-align:right">${esc(p.tr || "—")}</span></div>`).join("")}<p class="note">Пословный перевод собран из офлайн-словаря и помогает понять, из чего состоит фраза.</p></div>`;
+  h += `<div class="acts">${PC.ai || PC.aiState === "load" || !SET.apiKey ? "" : `<button class="btn soft" id="pAI">${IC.spark} Объяснить (Claude)</button>`}${saved ? `<button class="btn soft" id="pDel">${IC.check} В словаре</button>` : `<button class="btn primary" id="pSave" ${!whole && !PC.ai && !(PC.tr && PC.tr.text) ? "disabled" : ""}>Добавить в словарь</button>`}</div>`;
   $("#sbody").innerHTML = h;
-  const a = $("#pAI"); if (a) a.onclick = runPhraseAI;
-  const s = $("#pSave"); if (s) s.onclick = () => { const k = text.toLowerCase(); putWord({ key: k, w: text, lemma: text, tr: whole ? mainTr(whole.e) : PC.ai.translation, alts: [], ipa: "", sent: context, src: PC.src || "", note: PC.ai ? PC.ai.explanation || "" : whole && whole.e.n || "", ex: whole && whole.e.e ? whole.e.e.slice(0, 2) : [], ctx: "", box: 0, due: Date.now(), added: Date.now(), forms: [k] }); addXP(2, s); renderPhrase(); refreshCounters() };
+  const a = $("#pAI"); if (a) a.onclick = runPhraseAI; bindTr(PC, renderPhrase);
+  const s = $("#pSave"); if (s) s.onclick = () => { const k = text.toLowerCase(); putWord({ key: k, w: text, lemma: text, tr: whole ? mainTr(whole.e) : PC.ai ? PC.ai.translation : PC.tr.text, alts: [], ipa: "", sent: context, src: PC.src || "", note: PC.ai ? PC.ai.explanation || "" : whole && whole.e.n || "", ex: whole && whole.e.e ? whole.e.e.slice(0, 2) : [], ctx: "", box: 0, due: Date.now(), added: Date.now(), forms: [k] }); addXP(2, s); renderPhrase(); refreshCounters() };
   const d = $("#pDel"); if (d) d.onclick = () => { putWord(Object.assign(WORDS[text.toLowerCase()], { del: true })); renderPhrase(); refreshCounters() };
 }
 async function runPhraseAI() {
@@ -781,6 +788,119 @@ document.addEventListener("selectionchange", () => {
   }, 250);
 });
 selBar.addEventListener("click", e => { e.stopPropagation(); if (!selData) return; const d = selData; selBar.hidden = true; openPhrase(d.t, d.ctx, RD && RD.book.title) });
+
+/* ============ Mueller dictionary (big, detailed) ============ */
+const MSH = {};
+async function muEntry(w) {
+  const k = (w + "__").slice(0, 2).replace(/[^a-z]/g, "_");
+  if (!MSH[k]) MSH[k] = fetch("dict/m/" + k + ".json").then(r => r.ok ? r.json() : {}).catch(() => ({}));
+  const s = await MSH[k]; return s[w] || null;
+}
+function muMain(groups) {
+  const s = (groups[0] && groups[0][1][0]) || "";
+  let t = s.split(";")[0].replace(/\([^)]*\)/g, "").replace(/[A-Za-z][A-Za-z'’.\- ]*/g, "").replace(/\s+/g, " ").replace(/\s+,/g, ",").trim().replace(/^[,\s]+|[,\s]+$/g, "");
+  t = stripStress(t); return t.length > 70 ? t.slice(0, 70).replace(/\s\S*$/, "") + "…" : t;
+}
+function fmtSense(s) { const show = SET.stress ? s : stripStress(s); return show.split(/([A-Za-z][A-Za-z'’.\-\s]*[A-Za-z.)]|[A-Za-z])/).map((x, i) => i % 2 ? `<i class="en">${esc(x)}</i>` : esc(x)).join("") }
+async function fillMueller(ctx) {
+  if (!ctx || !ctx.res) return;
+  if (ctx.mu === undefined) { ctx.mu = await muEntry(ctx.res.lemma) || (ctx.res.lemma !== ctx.raw.toLowerCase() ? await muEntry(ctx.raw.toLowerCase()) : null); }
+  const box = $("#wMu"); if (!box || ctx !== WC || !ctx.mu) return;
+  const groups = ctx.mu[1]; const total = groups.reduce((n, g) => n + g[1].length, 0);
+  const lim = ctx.muAll ? 99 : 3; let shown = 0, html = "";
+  for (const [pos, senses] of groups) {
+    if (shown >= lim && !ctx.muAll) break;
+    const part = senses.slice(0, Math.max(0, lim - shown)); shown += part.length;
+    html += `${pos ? `<div class="mu-pos">${esc(pos)}</div>` : ""}<ol class="mu">${part.map(x => `<li>${fmtSense(x)}</li>`).join("")}</ol>`;
+  }
+  box.innerHTML = `<div class="box"><h4>Подробно · словарь Мюллера</h4>${html}${total > shown ? `<button class="more" id="muAll">Все значения и выражения (${total})</button>` : ""}</div>`;
+  const a = $("#muAll"); if (a) a.onclick = () => { ctx.muAll = true; fillMueller(ctx) };
+}
+
+/* ============ free sentence translation ============ */
+const TRC = LS.get("sc_tr", {});
+const SRC_LABEL = { google: "Google Переводчик, бесплатно", mymemory: "MyMemory, бесплатно", device: "переведено на устройстве" };
+function trBlock(ctx, auto) {
+  const t = ctx.tr;
+  if (SET.mt === "off") return "";
+  if (!t) return auto ? "" : `<button class="more" data-trgo style="margin-top:6px">Перевод предложения</button>`;
+  if (t.state === "load") return `<div class="skel" style="width:80%;margin-top:10px"></div><div class="skel" style="width:55%"></div>`;
+  if (t.err) return `<p class="note">${esc(t.err)}</p>${t.retry ? `<button class="more" data-trgo>Попробовать ещё раз</button>` : ""}`;
+  return `<p class="trline">${esc(t.text)}</p><p class="note" style="margin-top:4px">${esc(SRC_LABEL[t.src] || "")}</p>`;
+}
+function bindTr(ctx, rerender) { $$("[data-trgo]").forEach(b => b.onclick = () => runFreeTr(ctx, rerender, true)) }
+async function runFreeTr(ctx, rerender, manual) {
+  if (SET.mt === "off" || !ctx || !ctx.sentence) return;
+  if (!manual && SET.mt !== "device" && !navigator.onLine && !nmtInstalled()) return;
+  ctx.tr = { state: "load" }; rerender();
+  try { const r = await freeTranslate(ctx.sentence); ctx.tr = r }
+  catch (e) { ctx.tr = { err: e && e.msg || "Не удалось перевести.", retry: 1 } }
+  if (ctx === WC || ctx === PC) rerender();
+}
+function withTimeout(ms) { const c = new AbortController(); setTimeout(() => c.abort(), ms); return c.signal }
+async function trGoogle(text) {
+  const r = await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ru&dt=t&q=" + encodeURIComponent(text), { signal: withTimeout(8000) });
+  if (!r.ok) throw 0; const j = await r.json(); const t = (j[0] || []).map(x => x[0]).join("").trim(); if (!t) throw 0; return t;
+}
+async function trMyMemory(text) {
+  const r = await fetch("https://api.mymemory.translated.net/get?langpair=en%7Cru&q=" + encodeURIComponent(text.slice(0, 500)), { signal: withTimeout(8000) });
+  if (!r.ok) throw 0; const j = await r.json(); const t = j && j.responseData && j.responseData.translatedText;
+  if (!t || +j.responseStatus !== 200 || /MYMEMORY WARNING|QUERY LENGTH|INVALID/i.test(t)) throw 0; return t;
+}
+async function freeTranslate(text) {
+  const key = hash(text); if (TRC[key]) return TRC[key];
+  const mode = SET.mt; let r = null;
+  const online = async () => { try { return { text: await trGoogle(text), src: "google" } } catch (e) { try { return { text: await trMyMemory(text), src: "mymemory" } } catch (e2) { return null } } };
+  const device = async () => { try { return { text: await nmtTranslate(text), src: "device" } } catch (e) { return null } };
+  if (mode === "device") r = await device();
+  else if (mode === "online") r = navigator.onLine ? await online() : null;
+  else { r = navigator.onLine ? await online() : null; if (!r && nmtInstalled()) r = await device() }
+  if (!r) throw { msg: mode === "device" ? (nmtInstalled() ? "Офлайн-переводчик не смог перевести эту фразу." : "Офлайн-переводчик не скачан. Скачайте его в Профиле → Перевод предложений.") : !navigator.onLine ? (nmtInstalled() ? "Не получилось перевести." : "Нет интернета. Чтобы переводить без сети, скачайте офлайн-переводчик в Профиле → Перевод предложений.") : "Сервисы перевода сейчас не отвечают. Попробуйте чуть позже." };
+  TRC[key] = r; const ks = Object.keys(TRC); if (ks.length > 1500) delete TRC[ks[0]]; LS.set("sc_tr", TRC);
+  return r;
+}
+
+/* ============ on-device neural translator (Opus-MT en→ru, runs in the browser) ============ */
+let NMT = null, NMTp = null;
+const nmtInstalled = () => !!LS.get("sc_nmt", 0);
+async function nmtPipe(onProgress) {
+  if (NMT) return NMT; if (NMTp) return NMTp;
+  NMTp = (async () => {
+    const T = await import("./lib/tf/transformers.min.js");
+    T.env.allowLocalModels = false; T.env.useBrowserCache = true;
+    T.env.backends.onnx.wasm.wasmPaths = new URL("lib/tf/", location.href).href; T.env.backends.onnx.wasm.numThreads = 1; T.env.backends.onnx.wasm.proxy = false;
+    NMT = await T.pipeline("translation", "Xenova/opus-mt-en-ru", { dtype: "q8", device: "wasm", progress_callback: onProgress });
+    return NMT;
+  })();
+  try { return await NMTp } catch (e) { NMTp = null; throw e }
+}
+async function nmtTranslate(text) {
+  if (!nmtInstalled()) throw 0;
+  const p = await nmtPipe(); const parts = text.match(/[^.!?]+[.!?]*["”’)]*\s*/g) || [text]; const out = [];
+  for (const s of parts) { if (!s.trim()) continue; const r = await p(s.trim(), { max_new_tokens: 256 }); out.push(r[0].translation_text) }
+  return out.join(" ");
+}
+function mtSettingsHTML() {
+  const inst = nmtInstalled();
+  return `<div class="panel" style="padding:16px;margin-top:8px"><p style="font-size:15px">Перевод целых предложений и выделенных фраз. Всё бесплатно, ключи не нужны.</p><p class="note"><b>Онлайн</b> — Google Переводчик, запасной вариант MyMemory. Быстро и качественно, но нужен интернет. Текст предложения уходит в этот сервис.<br><b>На устройстве</b> — нейросеть-переводчик скачивается один раз (около 90 МБ) и потом работает без интернета. Переводит чуть проще, чем Google.<br><b>Авто</b> — онлайн, когда есть интернет, и на устройстве, когда его нет.</p></div>
+  <div class="panel" style="margin-top:12px"><div class="set col"><span class="k"><b>Источник перевода</b></span>${seg("mt", [["auto", "Авто"], ["online", "Онлайн"], ["device", "На устройстве"], ["off", "Выкл."]])}</div><div class="set"><span class="k"><b>Переводить предложение сразу</b><small>Вместе с карточкой слова, без лишнего нажатия</small></span>${sw("autoTr")}</div></div>
+  <div class="sec"><h2>Офлайн-переводчик · бета</h2><span>${inst ? "скачан" : "не скачан"}</span></div><div class="panel"><div class="set col"><span class="k"><b>${inst ? "Переводчик на устройстве" : "Скачать переводчик"}</b><small>${inst ? "Работает без интернета. Первый перевод после запуска приложения занимает несколько секунд." : "Около 90 МБ, лучше по Wi-Fi. Скачивается один раз."}</small></span><div class="acts" style="margin-top:4px">${inst ? `<button class="btn soft sm" id="nmtTest">Проверить</button><button class="btn warn sm" id="nmtDel">Удалить</button>` : `<button class="btn primary sm" id="nmtGet">${IC.down} Скачать</button>`}</div><p class="note" id="nmtMsg"></p></div></div>`;
+}
+function bindMtSettings() {
+  const msg = t => { const m = $("#nmtMsg"); if (m) m.textContent = t };
+  const g = $("#nmtGet"); if (g) g.onclick = async () => {
+    if (!navigator.onLine) { msg("Нужен интернет, чтобы скачать переводчик."); return }
+    g.disabled = true; const files = {};
+    try {
+      await nmtPipe(ev => { if (ev.status === "progress" && ev.total) { files[ev.file] = [ev.loaded, ev.total]; const l = Object.values(files).reduce((a, x) => a + x[0], 0), t = Object.values(files).reduce((a, x) => a + x[1], 0); msg(`Скачиваю: ${(l / 1e6).toFixed(0)} из ${(t / 1e6).toFixed(0)} МБ`) } else if (ev.status === "initiate") msg("Готовлю переводчик…") });
+      LS.set("sc_nmt", 1); msg("Проверяю…");
+      const t = await nmtTranslate("The little mouse runs to the net and starts to bite the ropes.");
+      msg("Готово! Пример: " + t); toast("Офлайн-переводчик установлен"); setTimeout(() => openSettings("mt"), 2500);
+    } catch (e) { console.error(e); LS.set("sc_nmt", 0); g.disabled = false; msg("Не удалось скачать или запустить переводчик на этом устройстве. Онлайн-перевод продолжит работать.") }
+  };
+  const t = $("#nmtTest"); if (t) t.onclick = async () => { msg("Перевожу…"); const t0 = Date.now(); try { const r = await nmtTranslate("When Alice reached the shore, she was wet and tired."); msg(r + ` (${((Date.now() - t0) / 1000).toFixed(1)} с)`) } catch (e) { msg("Не получилось. Попробуйте удалить и скачать переводчик заново.") } };
+  const d = $("#nmtDel"); if (d) d.onclick = async () => { try { await caches.delete("transformers-cache") } catch (e) {} LS.set("sc_nmt", 0); NMT = null; NMTp = null; toast("Офлайн-переводчик удалён"); openSettings("mt") };
+}
 
 /* ============ boot ============ */
 document.addEventListener("keydown", e => { if (e.key !== "Escape") return; if (sheet.classList.contains("open")) closeSheet(); else if ($("#layer").classList.contains("open")) { closeLayer("#layer"); render() } else if (RD) closeReader() });
